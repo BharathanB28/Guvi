@@ -1,0 +1,41 @@
+{
+    "basics" : {
+      "name": "Bharathan",
+      "label": "Programmer",
+      "email": "bharathan655@gmail.com",
+      "phone": "8248849911",
+      "location": {
+        "address": "No.95/2, Porchuguese Church 1st street",
+        "postalCode": "600001",
+        "city": "Chennai",
+        "state": "Tamil nadu",
+        "countryCode": "IND"
+      },
+    "education": [{
+      "institution": "Saveetha University",
+      "url": "https://saveethauniversity.com/",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "01-May-2012",
+      "endDate": "31-Jun-2016",
+      "score": "7.0",
+      "courses": [
+        "Frontend Development"
+      ]
+    }],
+    "skills": [{
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    }],
+    "languages": [{
+      "language": "Tamil, English",
+      "fluency": "Native speaker"
+    }]
+  }
+
+}
