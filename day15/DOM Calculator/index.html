@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1 class="title" id="title">Calculator</h1>
+            <input type="text" id="result" readonly>
+
+            <div>
+              <button class="btn btn-danger" id="clear" onclick="clearDisplay()">C</button>
+              <button class="btn btn-danger" id="erase" onclick="deleteLastDigit()"><-</button>
+              <button class="btn btn-secondary" id="dot" onclick="appendToDisplay('.')">.</button>
+              <button class="btn btn-warning" id="multiplication" onclick="appendToDisplay('*')">*</button>
+            </div>
+            <div>
+                <button class="btn btn-secondary" id="7" onclick="appendToDisplay('7')">7</button>
+                <button class="btn btn-secondary" id="8" onclick="appendToDisplay('8')">8</button>
+                <button class="btn btn-secondary" id="9" onclick="appendToDisplay('9')">9</button>
+                <button class="btn btn-warning" id="division" onclick="appendToDisplay('/')">/</button>
+                
+            </div>
+            <div>
+                <button class="btn btn-secondary" id="4" onclick="appendToDisplay('4')">4</button>
+                <button class="btn btn-secondary" id="5" onclick="appendToDisplay('5')">5</button>
+                <button class="btn btn-secondary" id="6" onclick="appendToDisplay('6')">6</button>
+                <button class="btn btn-warning" id="subtract" onclick="appendToDisplay('-')">-</button>
+            </div>
+            <div>
+                <button class="btn btn-secondary" id="1" onclick="appendToDisplay('1')">1</button>
+                <button class="btn btn-secondary" id="2" onclick="appendToDisplay('2')">2</button>
+                <button class="btn btn-secondary" id="3" onclick="appendToDisplay('3')">3</button>
+                <button class="btn btn-warning" id="add" onclick="appendToDisplay('+')">+</button>
+                
+            </div>
+            <div>
+                <button class="btn btn-secondary" id="0" onclick="appendToDisplay('0')">0</button>
+                <button class="btn btn-secondary" id="00" onclick="appendToDisplay('00')">00</button>
+                <button class="btn btn-warning" id="equal" onclick="calculateResult()" style="width: 43%; margin: 2px;">=</button>               
+            </div>            
+        </div>
+        <p id="description">I have completed the Calculator Task with all test cases.</p>
+    </div>
+  
+  <script src="./script.js"></script>
+  <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+</body>
+</html>
