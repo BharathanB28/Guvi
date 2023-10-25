@@ -1,0 +1,51 @@
+.main-container {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 28%;
+  height: 450px;
+  background-color: azure;
+  transition: all 0.5s;
+}
+
+.main-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.upper-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.seperation-line {
+  border: .1px solid gray;
+}
+
+.btn {
+  position: relative;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: 20px;
+  letter-spacing: 0.2rem;
+  font-size: large;
+  font-weight: 500;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.subscription-type {
+  color: gray;
+  letter-spacing: 2px;
+  font-size: small;
+  font-weight: 700;
+}
