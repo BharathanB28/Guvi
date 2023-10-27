@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Create from './Components/Create';
 import Read from './Components/Read';
@@ -7,9 +8,13 @@ function App() {
   return (
     <div className="main">
       <h2>CRUD Operations</h2>
-      <Create/>
-      <Read/>
-      <Update/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/create' element={<Create/>} />
+        <Route path='/read' element={<Read/>} />
+        <Route path='/update' element={<Update/>} />
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

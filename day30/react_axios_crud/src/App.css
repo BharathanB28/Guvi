@@ -4,4 +4,13 @@
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  color: white;
+  background: black;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
