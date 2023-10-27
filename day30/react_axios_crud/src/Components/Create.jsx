@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {API_URL} from '../Constants/URL'
 import {Form, Button, Checkbox} from 'semantic-ui-react'
-import { eventWrapper } from '@testing-library/user-event/dist/utils'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 

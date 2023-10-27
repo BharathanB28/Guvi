@@ -2,10 +2,20 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { Button, Table } from 'semantic-ui-react'
 import { API_URL } from '../Constants/URL'
+import { useNavigate } from 'react-router-dom'
 
 function Read() {
     const [apiData, setAPIData] = useState([])
-    
+    const navigate = useNavigate()
+
+    const updateUser = async ({firstName,lastName,checked,id}) => {
+        localStorage.setItem('id', id)
+        localStorage.setItem('firstName', firstName)
+        localStorage.setItem('lastName', lastName)
+        localStorage.setItem('checked', checked)
+        navigate("/update")
+    }
+
     const deleteUser = async (id) =>{
         await axios.delete(API_URL + id)
         callGetAPI()
@@ -28,6 +38,7 @@ function Read() {
                 <Table.HeaderCell>Last Name</Table.HeaderCell>
                 <Table.HeaderCell>Checked</Table.HeaderCell>
                 <Table.HeaderCell>Delete</Table.HeaderCell>
+                <Table.HeaderCell>Update</Table.HeaderCell>
             </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -38,6 +49,7 @@ function Read() {
                     <Table.Cell>{data.lastName}</Table.Cell>
                     <Table.Cell>{data.checked ? "true" : "false"}</Table.Cell>
                     <Table.Cell><Button onClick={()=>deleteUser(data.id)}>Delete</Button></Table.Cell>
+                    <Table.Cell><Button onClick={()=>updateUser(data)}>Update</Button></Table.Cell>
                 </Table.Row>
                 ))
             }
