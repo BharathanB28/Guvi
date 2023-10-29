@@ -1,16 +1,113 @@
-.main {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url(Images/html_table.jpg) center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  color: white;
-  background: black;
 }
-.form{
+
+.create, .update{
+  margin: 70px auto;
+  max-width: 350px;
+  padding: 10px;
+  border-radius: 4px;
+  background: #fff4;
+}
+
+.header_read{
+  color: whitesmoke;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  
+}
+
+.link_read, .link_create{
+  color: aliceblue;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
 }
+
+h2{
+  text-align: center;
+}
+
+input{
+  display: inline-block;
+  width: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: .5px solid;
+  margin: 10px 0;
+}
+
+
+.create-button, .update-button{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  padding: 4px;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  background: orange;
+}
+
+.delete-button{
+  margin: auto 5px;
+  padding: 2px; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgb(247, 84, 84);
+}
+
+.update_button{
+  margin: auto 5px;
+  padding: 2px; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgb(104, 246, 104);
+}
+
+.table{
+  text-align: center;
+}
+
+
+/* .table_header{
+  /* width: 100%; */
+  /* height: 10%; */
+  /* background-color: #fff4;
+  padding: .8rem 1rem; */
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+/* }
+
+.table_body {
+  width: 95%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+
+  margin: .8rem auto;
+  border-radius: .6rem;
+
+  overflow: auto;
+  overflow: overlay;
+} */ 
+
+
+
+
+

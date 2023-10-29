@@ -1,40 +1,60 @@
 import React, {useState} from 'react'
 import {API_URL} from '../Constants/URL'
-import {Form, Button, Checkbox} from 'semantic-ui-react'
+import {Form, Button} from 'semantic-ui-react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Create() {
     const [firstName, setfirstName] = useState('')
     const [lastName, setlastName] = useState('')
-    const [checked, setchecked] = useState(false)
+    const [email, setEmail] = useState('')
+    const [mobileNumber, setMobileNumber] = useState('')
+    const [location, setLocation] = useState('')
     const navigate = useNavigate()
 
     const postData =async () =>{
        await axios.post(API_URL, {
         firstName,
         lastName,
-        checked
+        email,
+        mobileNumber,
+        location,        
        })
        navigate('/read')
     }
   return (
-    <Form className='form'>
+    <div className='create'>
+        <h2>Create User</h2>
+    <Form>
         <Form.Field>
             <label>First Name</label>
             <input value={firstName} placeholder='Enter first name' onChange={event => setfirstName(event.target.value)}/>
-        </Form.Field><br/>
+        </Form.Field>
         <Form.Field>
             <label>Last Name</label>
             <input value={lastName} placeholder='Enter last name' onChange={event => setlastName(event.target.value)}/>
-        </Form.Field><br/>
+        </Form.Field>
         <Form.Field>
-            <Checkbox checked={checked} label='Agree the terms and conditions' onChange={()=>setchecked(!checked)}/>
-        </Form.Field><br/>
-        <Button onClick={postData}>Submit</Button>
+            <label>Email</label>
+            <input value={email} placeholder='Enter email' onChange={event => setEmail(event.target.value)}/>
+        </Form.Field>
+        <Form.Field>
+            <label>Mobile Number</label>
+            <input value={mobileNumber} placeholder='Enter mobile number' onChange={event => setMobileNumber(event.target.value)}/>
+        </Form.Field>
+        <Form.Field>
+            <label>Location</label>
+            <input value={location} placeholder='Enter location' onChange={event => setLocation(event.target.value)}/>
+        </Form.Field> 
+        <Button className='create-button' onClick={postData}>Submit</Button>
 
     </Form>
+
+    <Link className='link_create' to={"/read"}>User's Information</Link>
+    </div>
+
+    
   )
 }
 
