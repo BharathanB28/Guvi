@@ -1,0 +1,28 @@
+/* header styles */
+
+.header {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+
+/* Home Page */
+
+.home {
+  display: flex;
+}
+
+.productContainer {
+  display: flex;  
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+}
+
+.products {
+  width: 30%;  
+  margin: 10px;
+}
