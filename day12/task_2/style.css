@@ -1,0 +1,39 @@
+body{
+    align-items: center;
+    justify-content: center;
+}
+h1,h3{
+    margin: 20px;
+    text-align: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+    width: 800px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.input-group{
+    padding: 10px;
+}
+
+.container{
+    margin-left: 80px;
+}
+
+.form{
+    margin-right: 80px;
+}
+
+button{
+    padding: 5px;
+    margin: auto;
+}
+select{
+    width: 190px;
+}

@@ -1,0 +1,36 @@
+body{
+    background: #CAD2C5;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: #2F3D46;
+    color: white;
+    font-size: 40px;
+}
+
+i{
+    color: white;
+    margin-left: 30px;
+    margin-right: 600px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 60px;
+    border-radius: 5px;
+    height: 500px;
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    background: #353535;
+    color: gray;
+    font-size:larger;
+}
+
+.main{
+    display: flex;
+}
