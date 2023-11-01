@@ -1,0 +1,61 @@
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.product{
+  width: 250px;
+  background: #CCF5D3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.todo-list{  
+  display: grid;
+  margin-left: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;  
+}
+
+
+button{
+  border-radius: 5px;
+  margin-left: 12px;
+}
+
+.Delete{
+  background: #CF5E1F;
+}
+
+.Edit, .Save, .Add_Todo, .Save_Todo{
+  background: #13AD89;
+}
+
+.Change_Status{
+  background: yellow ;
+}
+
+.sub_heading{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 30px;
+}
+
+.todo-form{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  color: #13AD89;
+  text-align: center;
+}
+
+input{
+  border-radius: 2px;
+  padding: 5px;
+  margin: 10px;
+  width: 25%;
+}
