@@ -1,0 +1,383 @@
+Microsoft Windows [Version 10.0.19045.3570]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\BHARATHAN>mysql -u root -p
+Enter password: *************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.2.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.18 sec)
+
+mysql> create database Guvi_Zen_Class;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| guvi_zen_class     |
+| information_schema |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use guvi_zen_class;
+Database changed
+mysql> create table users(User_ID int auto_increment primary key, First_Name varchar(50) not null, Last_Name varchar(50) not null, Email varchar(100) unique not null, Password varchar(100) not null, Role enum('Student', 'Instructor', 'Admin') not null, Date_of_Birth date not null, Contact_Information varchar(255) not null, Profile_Picture varchar(255) not null);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_guvi_zen_class |
++--------------------------+
+| users                    |
++--------------------------+
+1 row in set (0.02 sec)
+
+mysql> desc users;
++---------------------+--------------------------------------+------+-----+---------+----------------+
+| Field               | Type                                 | Null | Key | Default | Extra          |
++---------------------+--------------------------------------+------+-----+---------+----------------+
+| User_ID             | int                                  | NO   | PRI | NULL    | auto_increment |
+| First_Name          | varchar(50)                          | NO   |     | NULL    |                |
+| Last_Name           | varchar(50)                          | NO   |     | NULL    |                |
+| Email               | varchar(100)                         | NO   | UNI | NULL    |                |
+| Password            | varchar(100)                         | NO   |     | NULL    |                |
+| Role                | enum('Student','Instructor','Admin') | NO   |     | NULL    |                |
+| Date_of_Birth       | date                                 | NO   |     | NULL    |                |
+| Contact_Information | varchar(255)                         | NO   |     | NULL    |                |
+| Profile_Picture     | varchar(255)                         | NO   |     | NULL    |                |
++---------------------+--------------------------------------+------+-----+---------+----------------+
+9 rows in set (0.00 sec)
+
+mysql> create table courses(Course_ID int auto_increment primary key, Title varchar(100) not null, Description text not null, Instructor_ID int not null, Start_Date date not null, End_Date date not null, Prerequiresites text not null, Course_Material text not null, foreign key (Instructor_ID) references users(User_ID));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc courses;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| Course_ID       | int          | NO   | PRI | NULL    | auto_increment |
+| Title           | varchar(100) | NO   |     | NULL    |                |
+| Description     | text         | NO   |     | NULL    |                |
+| Instructor_ID   | int          | NO   | MUL | NULL    |                |
+| Start_Date      | date         | NO   |     | NULL    |                |
+| End_Date        | date         | NO   |     | NULL    |                |
+| Prerequiresites | text         | NO   |     | NULL    |                |
+| Course_Material | text         | NO   |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> create table enrollments(Enrollment_ID int auto_increment primary key, Student_ID int not null, Course_ID int not null, Enrollment_Date date not null, foreign key (Student_ID) references users(User_ID), foreign key (Course_ID) references courses(Course_ID));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc enrollments;
++-----------------+------+------+-----+---------+----------------+
+| Field           | Type | Null | Key | Default | Extra          |
++-----------------+------+------+-----+---------+----------------+
+| Enrollment_ID   | int  | NO   | PRI | NULL    | auto_increment |
+| Student_ID      | int  | NO   | MUL | NULL    |                |
+| Course_ID       | int  | NO   | MUL | NULL    |                |
+| Enrollment_Date | date | NO   |     | NULL    |                |
++-----------------+------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> create table modules (Module_ID int auto_increment primary key, Course_ID int not null, Title varchar(100) not null, Description text not null, Content text not null, Start_Date date not null, End_Date date not null, foreign key (Course_ID) references courses(Course_ID));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc modules;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| Module_ID   | int          | NO   | PRI | NULL    | auto_increment |
+| Course_ID   | int          | NO   | MUL | NULL    |                |
+| Title       | varchar(100) | NO   |     | NULL    |                |
+| Description | text         | NO   |     | NULL    |                |
+| Content     | text         | NO   |     | NULL    |                |
+| Start_Date  | date         | NO   |     | NULL    |                |
+| End_Date    | date         | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> create table assignments (Assignment_ID int auto_increment primary key, Module_ID int not null, Title varchar(100) not null, description text not null, Due_Date date not null, Max_Points int not null, Additional_Resources text not null, foreign key (Module_ID) references modules(Module_ID));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc assignments;
++----------------------+--------------+------+-----+---------+----------------+
+| Field                | Type         | Null | Key | Default | Extra          |
++----------------------+--------------+------+-----+---------+----------------+
+| Assignment_ID        | int          | NO   | PRI | NULL    | auto_increment |
+| Module_ID            | int          | NO   | MUL | NULL    |                |
+| Title                | varchar(100) | NO   |     | NULL    |                |
+| description          | text         | NO   |     | NULL    |                |
+| Due_Date             | date         | NO   |     | NULL    |                |
+| Max_Points           | int          | NO   |     | NULL    |                |
+| Additional_Resources | text         | NO   |     | NULL    |                |
++----------------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> create table submissions (Submission_ID int auto_increment primary key, Assignment_ID int not null, Student_ID int not null, Submission_Date date not null, File_upload varchar(255), Text_Submission text not null, Grade int not null, foreign key (Assignment_ID) references assignments(Assignment_ID), foreign key (Student_ID) references users(USer_ID));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc submissions;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| Submission_ID   | int          | NO   | PRI | NULL    | auto_increment |
+| Assignment_ID   | int          | NO   | MUL | NULL    |                |
+| Student_ID      | int          | NO   | MUL | NULL    |                |
+| Submission_Date | date         | NO   |     | NULL    |                |
+| File_upload     | varchar(255) | NO   |     | NULL    |                |
+| Text_Submission | text         | NO   |     | NULL    |                |
+| Grade           | int          | NO   |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> create table announcements (Announcement_ID int auto_increment primary key, Course_ID int not null, Title varchar(100) not null, Content text not null, Post_Date date not null, Author int not null, foreign key (Course_ID) references courses(Course_ID), foreign key (Author) references users(User_ID));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc announcements;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| Announcement_ID | int          | NO   | PRI | NULL    | auto_increment |
+| Course_ID       | int          | NO   | MUL | NULL    |                |
+| Title           | varchar(100) | NO   |     | NULL    |                |
+| Content         | text         | NO   |     | NULL    |                |
+| Post_Date       | date         | NO   |     | NULL    |                |
+| Author          | int          | NO   | MUL | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_guvi_zen_class |
++--------------------------+
+| announcements            |
+| assignments              |
+| courses                  |
+| enrollments              |
+| modules                  |
+| submissions              |
+| users                    |
++--------------------------+
+7 rows in set (0.01 sec)
+
+mysql> INSERT INTO users (First_Name, Last_Name, Email, Password, Role, Date_of_Birth, Contact_Information, Profile_Picture)
+    -> VALUES ('John', 'Doe', 'johndoe@example.com', 'password123', 'Student', '1990-01-15', 'Contact info goes here', 'profile1.jpg');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO users (First_Name, Last_Name, Email, Password, Role, Date_of_Birth, Contact_Information, Profile_Picture)
+    -> VALUES ('Alice', 'Smith', 'alice@example.com', 'secret', 'Instructor', '1985-03-25', 'Contact info goes here', 'profile2.jpg');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from users;
++---------+------------+-----------+---------------------+-------------+------------+---------------+------------------------+-----------------+
+| User_ID | First_Name | Last_Name | Email               | Password    | Role       | Date_of_Birth | Contact_Information    | Profile_Picture |
++---------+------------+-----------+---------------------+-------------+------------+---------------+------------------------+-----------------+
+|       1 | John       | Doe       | johndoe@example.com | password123 | Student    | 1990-01-15    | Contact info goes here | profile1.jpg    |
+|       2 | Alice      | Smith     | alice@example.com   | secret      | Instructor | 1985-03-25    | Contact info goes here | profile2.jpg    |
++---------+------------+-----------+---------------------+-------------+------------+---------------+------------------------+-----------------+
+2 rows in set (0.01 sec)
+
+mysql> INSERT INTO courses (Title, Description, Instructor_ID, Start_Date, End_Date, Prerequiresites, Course_Material)
+    -> VALUES ('Programming Basics', 'Learn the fundamentals of programming', 2, '2023-03-01', '2023-04-15', 'None', 'Course material goes here');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO courses (Title, Description, Instructor_ID, Start_Date, End_Date, Prerequiresites, Course_Material)
+    -> VALUES ('Database Management', 'Explore database concepts and management', 2, '2023-03-15', '2023-04-30', 'Programming Basics', 'Course material goes here');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from courses;
++-----------+---------------------+------------------------------------------+---------------+------------+------------+--------------------+---------------------------+
+| Course_ID | Title               | Description                              | Instructor_ID | Start_Date | End_Date   | Prerequiresites    | Course_Material           |
++-----------+---------------------+------------------------------------------+---------------+------------+------------+--------------------+---------------------------+
+|         1 | Programming Basics  | Learn the fundamentals of programming    |             2 | 2023-03-01 | 2023-04-15 | None               | Course material goes here |
+|         2 | Database Management | Explore database concepts and management |             2 | 2023-03-15 | 2023-04-30 | Programming Basics | Course material goes here |
++-----------+---------------------+------------------------------------------+---------------+------------+------------+--------------------+---------------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO enrollments (Student_ID, Course_ID, Enrollment_Date)
+    -> VALUES (1, 1, '2023-03-10');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO enrollments (Student_ID, Course_ID, Enrollment_Date)
+    -> VALUES (2, 2, '2023-03-20');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from enrollments;
++---------------+------------+-----------+-----------------+
+| Enrollment_ID | Student_ID | Course_ID | Enrollment_Date |
++---------------+------------+-----------+-----------------+
+|             1 |          1 |         1 | 2023-03-10      |
+|             2 |          2 |         2 | 2023-03-20      |
++---------------+------------+-----------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO modules (Course_ID, Title, Description, Content, Start_Date, End_Date)
+    -> VALUES (1, 'Module 1', 'Introduction to Programming Basics', 'Module content goes here', '2023-03-01', '2023-03-15');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO modules (Course_ID, Title, Description, Content, Start_Date, End_Date)
+    -> VALUES (2, 'Module 1', 'Introduction to Databases', 'Module content goes here', '2023-03-15', '2023-03-30');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from modules;
++-----------+-----------+----------+------------------------------------+--------------------------+------------+------------+
+| Module_ID | Course_ID | Title    | Description                        | Content                  | Start_Date | End_Date   |
++-----------+-----------+----------+------------------------------------+--------------------------+------------+------------+
+|         2 |         1 | Module 1 | Introduction to Programming Basics | Module content goes here | 2023-03-01 | 2023-03-15 |
+|         3 |         2 | Module 1 | Introduction to Databases          | Module content goes here | 2023-03-15 | 2023-03-30 |
++-----------+-----------+----------+------------------------------------+--------------------------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO assignments (Module_ID, Title, description, Due_Date, Max_Points, Additional_Resources)
+    -> VALUES (1, 'Assignment 1', 'Complete the tasks in this assignment', '2023-03-08', 100, 'Additional resources go here');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO assignments (Module_ID, Title, description, Due_Date, Max_Points, Additional_Resources)
+    -> VALUES (2, 'Assignment 1', 'Database design project', '2023-03-20', 90, 'Project guidelines go here');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from assignments;
++---------------+-----------+--------------+---------------------------------------+------------+------------+------------------------------+
+| Assignment_ID | Module_ID | Title        | description                           | Due_Date   | Max_Points | Additional_Resources         |
++---------------+-----------+--------------+---------------------------------------+------------+------------+------------------------------+
+|             2 |         2 | Assignment 1 | Database design project               | 2023-03-20 |         90 | Project guidelines go here   |
+|             4 |         1 | Assignment 1 | Complete the tasks in this assignment | 2023-03-08 |        100 | Additional resources go here |
++---------------+-----------+--------------+---------------------------------------+------------+------------+------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO submissions (Assignment_ID, Student_ID, Submission_Date, File_upload, Text_Submission, Grade)
+    -> VALUES (2, 1, '2023-03-21', NULL, 'Database design submitted', 85);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO submissions (Assignment_ID, Student_ID, Submission_Date, File_upload, Text_Submission, Grade)
+    -> VALUES (4, 2, '2023-03-08', 'assignment1.pdf', 'Text submission goes here', 90);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from submissions;
++---------------+---------------+------------+-----------------+-----------------+---------------------------+-------+
+| Submission_ID | Assignment_ID | Student_ID | Submission_Date | File_upload     | Text_Submission           | Grade |
++---------------+---------------+------------+-----------------+-----------------+---------------------------+-------+
+|             3 |             2 |          1 | 2023-03-21      | NULL            | Database design submitted |    85 |
+|             4 |             4 |          2 | 2023-03-08      | assignment1.pdf | Text submission goes here |    90 |
++---------------+---------------+------------+-----------------+-----------------+---------------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO announcements (Course_ID, Title, Content, Post_Date, Author)
+    -> VALUES (1, 'Important Announcement', 'Course update: Please review the new material.', '2023-03-05', 2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO announcements (Course_ID, Title, Content, Post_Date, Author)
+    -> VALUES (2, 'Upcoming Deadline', 'Reminder: Assignment 2 due on March 20.', '2023-03-10', 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from announcements;
++-----------------+-----------+------------------------+------------------------------------------------+------------+--------+
+| Announcement_ID | Course_ID | Title                  | Content                                        | Post_Date  | Author |
++-----------------+-----------+------------------------+------------------------------------------------+------------+--------+
+|               1 |         1 | Important Announcement | Course update: Please review the new material. | 2023-03-05 |      2 |
+|               2 |         2 | Upcoming Deadline      | Reminder: Assignment 2 due on March 20.        | 2023-03-10 |      2 |
++-----------------+-----------+------------------------+------------------------------------------------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT c.Course_ID, c.Title
+    -> FROM courses c
+    -> INNER JOIN enrollments e ON c.Course_ID = e.Course_ID
+    -> WHERE e.Student_ID = 1;
++-----------+--------------------+
+| Course_ID | Title              |
++-----------+--------------------+
+|         1 | Programming Basics |
++-----------+--------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT a.Assignment_ID, a.Title
+    -> FROM assignments a
+    -> INNER JOIN modules m ON a.Module_ID = m.Module_ID
+    -> WHERE m.Module_ID = 1;
++---------------+--------------+
+| Assignment_ID | Title        |
++---------------+--------------+
+|             4 | Assignment 1 |
++---------------+--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT s.Submission_ID, s.Student_ID
+    -> FROM submissions s
+    -> INNER JOIN assignments a ON s.Assignment_ID = a.Assignment_ID
+    -> WHERE a.Assignment_ID = 2;
++---------------+------------+
+| Submission_ID | Student_ID |
++---------------+------------+
+|             3 |          1 |
++---------------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT Course_ID, Title
+    -> FROM courses
+    -> WHERE Instructor_ID = 2;
++-----------+---------------------+
+| Course_ID | Title               |
++-----------+---------------------+
+|         1 | Programming Basics  |
+|         2 | Database Management |
++-----------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT Submission_ID, Assignment_ID, Grade
+    -> FROM submissions
+    -> WHERE Student_ID = 1 AND Grade >= 80;
++---------------+---------------+-------+
+| Submission_ID | Assignment_ID | Grade |
++---------------+---------------+-------+
+|             3 |             2 |    85 |
++---------------+---------------+-------+
+1 row in set (0.01 sec)
+
+mysql> SELECT u.First_Name, u.Last_Name
+    -> FROM users u
+    -> INNER JOIN enrollments e ON u.User_ID = e.Student_ID
+    -> WHERE e.Course_ID = 1;
++------------+-----------+
+| First_Name | Last_Name |
++------------+-----------+
+| John       | Doe       |
++------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT c.Title AS Course_Title, a.Title AS Announcement_Title, a.Content
+    -> FROM courses c
+    -> INNER JOIN announcements a ON c.Course_ID = a.Course_ID
+    -> WHERE a.Course_ID = 1;
++--------------------+------------------------+------------------------------------------------+
+| Course_Title       | Announcement_Title     | Content                                        |
++--------------------+------------------------+------------------------------------------------+
+| Programming Basics | Important Announcement | Course update: Please review the new material. |
++--------------------+------------------------+------------------------------------------------+
+1 row in set (0.00 sec)

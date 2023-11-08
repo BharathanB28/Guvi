@@ -1,0 +1,62 @@
+/* Reset some default styles */
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: #333; /* Background color for the navbar */
+  text-align: center; /* Center-align the items in the navbar */  
+  height: 30px;
+}
+
+ul.navbar {
+  list-style-type: none; /* Remove the default list style */
+  padding: 0; /* Remove default list padding */
+}
+
+ul.navbar li {
+  display: inline; /* Display the list items horizontally */
+  margin: auto 30px; /* Add some spacing between items */
+  padding: 10px;
+}
+
+ul.navbar li a {
+  text-decoration: none; /* Remove underlines from links */
+  color: #fff; /* Text color for links */
+  font-weight: bold; /* Make the text bold */
+  
+}
+
+ul.navbar li a:hover {
+  color: green; /* Text color on hover */
+  border-bottom: 4px solid green;
+}
+
+h3{
+  font-weight: bold;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.App{
+  width: 900px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.card-div{
+  background:rgb(158, 186, 239);
+  padding: 10px;
+  border-radius: 5px;
+  height: 100%;
+}
+
+img{
+  width: 100%;
+  height: 150px;  
+  border-radius: 5px;
+}
+
