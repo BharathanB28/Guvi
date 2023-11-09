@@ -1,62 +1,70 @@
-/* Reset some default styles */
 body, ul {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; 
 }
 
 /* Style the navigation bar */
 nav {
-  background-color: #333; /* Background color for the navbar */
-  text-align: center; /* Center-align the items in the navbar */  
-  height: 30px;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 ul.navbar {
-  list-style-type: none; /* Remove the default list style */
-  padding: 0; /* Remove default list padding */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 50px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 ul.navbar li {
-  display: inline; /* Display the list items horizontally */
-  margin: auto 30px; /* Add some spacing between items */
-  padding: 10px;
+  margin: 0 10px; 
 }
 
 ul.navbar li a {
-  text-decoration: none; /* Remove underlines from links */
-  color: #fff; /* Text color for links */
-  font-weight: bold; /* Make the text bold */
-  
+  text-decoration: none;
+  color: black;
+  font-size: medium;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 ul.navbar li a:hover {
-  color: green; /* Text color on hover */
-  border-bottom: 4px solid green;
+  color: #ecc57c;
+  border-bottom: 4px solid #FFC65B;
 }
 
-h3{
-  font-weight: bold;
-  margin-top: 0%;
-  margin-bottom: 0%;
+.navbar a.active {
+  color: #ecc57c;
+  border-bottom: 4px solid #FFC65B;
 }
 
-.App{
-  width: 900px;
+/* Responsive styles for cards */
+.App {
+  width: 90%;
+  max-width: 1200px;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
-.card-div{
-  background:rgb(158, 186, 239);
+
+.card-div {
+  background: #f4ead6;
   padding: 10px;
   border-radius: 5px;
-  height: 100%;
 }
 
-img{
+img {
   width: 100%;
-  height: 150px;  
+  height: 150px;
   border-radius: 5px;
 }
 
+.poster{
+  height: 300px;
+}
