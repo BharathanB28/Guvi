@@ -1,0 +1,2292 @@
+
+
+
+_________________________________________________________________MongoDB Day-2 Task________________________________________________________________________________
+
+
+_______________________________________________________Design database for Zen class programme_____________________________________________________________________
+
+
+test> use zen_class_programme;
+
+
+_____________________________________________________________Users Collection Created_______________________________________________________________________________
+
+
+zen_class_programme> db.users.insertMany([{name: "Bharathan", email: "bharathan@hmail.com", age: 28}, {name: "Saravanan", email: "saravanan@gmail.com", age: 25},{name: "Fouziya", email: "fouziya@gmail.com", age: 24}, {name: "Niranjan", email: "niranjan@gmail.com", age: 29}, {name: "Purosoth", email: "purusoth@gmail.com", age: 28}, {name: "Manoj", email: "manoj@hmail.com", age: 32}, {name: "Kamal", email: "kamal@gmail.com", age: 24},{name: "Priyanga", email: "priyanga@gmail.com", age: 28}, {name: "Monisha", email: "Monisha@gmail.com", age: 26}, {name: "Dinesh", email: "dinesh@gmail.com", age: 30}, {name: "Kannan", email: "kannan@gmail.com", age: 33}, {name: "Ajith", email: "ajith@gmail.com", age: 23},{name: "Arun", email: "arun@gmail.com", age: 27}, {name: "Vallavan", email: "vallavan@gmail.com", age: 26}, {name: "Manikkam", email: "manikkam@gmail.com", age: 29}, {name: "John", email: "john@gmail.com", age: 33}, {name: "Hasini", email: "hasini@gmail.com", age: 23},{name: "Durga", email: "durga@gmail.com", age: 27}, {name: "Vinoth", email: "vinoth@gmail.com", age: 26}, {name: "Praveena", email: "praveena@gmail.com", age: 30}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654dcb005afe897c6b61417d"),
+    '1': ObjectId("654dcb005afe897c6b61417e"),
+    '2': ObjectId("654dcb005afe897c6b61417f"),
+    '3': ObjectId("654dcb005afe897c6b614180"),
+    '4': ObjectId("654dcb005afe897c6b614181"),
+    '5': ObjectId("654dfe565afe897c6b614187"),
+    '6': ObjectId("654dfe565afe897c6b614188"),
+    '7': ObjectId("654dfe565afe897c6b614189"),
+    '8': ObjectId("654dfe565afe897c6b61418a"),
+    '9': ObjectId("654dfe565afe897c6b61418b"),
+    '10': ObjectId("654dff105afe897c6b61418c"),
+    '11': ObjectId("654dff105afe897c6b61418d"),
+    '12': ObjectId("654dff105afe897c6b61418e"),
+    '13': ObjectId("654dff105afe897c6b61418f"),
+    '14': ObjectId("654dff105afe897c6b614190"),
+    '15': ObjectId("654dff9b5afe897c6b614191"),
+    '16': ObjectId("654dff9b5afe897c6b614192"),
+    '17': ObjectId("654dff9b5afe897c6b614193"),
+    '18': ObjectId("654dff9b5afe897c6b614194"),
+    '19': ObjectId("654dff9b5afe897c6b614195")
+  }
+}
+
+zen_class_programme> db.users.find({});
+[
+  {
+    _id: ObjectId("654dcb005afe897c6b61417d"),
+    name: 'Bharathan',
+    email: 'bharathan@hmail.com',
+    age: 28
+  },
+  {
+    _id: ObjectId("654dcb005afe897c6b61417e"),
+    name: 'Saravanan',
+    email: 'saravanan@gmail.com',
+    age: 25
+  },
+  {
+    _id: ObjectId("654dcb005afe897c6b61417f"),
+    name: 'Fouziya',
+    email: 'fouziya@gmail.com',
+    age: 24
+  },
+  {
+    _id: ObjectId("654dcb005afe897c6b614180"),
+    name: 'Niranjan',
+    email: 'niranjan@gmail.com',
+    age: 29
+  },
+  {
+    _id: ObjectId("654dcb005afe897c6b614181"),
+    name: 'Purosoth',
+    email: 'purusoth@gmail.com',
+    age: 28
+  },
+  {
+    _id: ObjectId("654dfe565afe897c6b614187"),
+    name: 'Manoj',
+    email: 'manoj@hmail.com',
+    age: 32
+  },
+  {
+    _id: ObjectId("654dfe565afe897c6b614188"),
+    name: 'Kamal',
+    email: 'kamal@gmail.com',
+    age: 24
+  },
+  {
+    _id: ObjectId("654dfe565afe897c6b614189"),
+    name: 'Priyanga',
+    email: 'priyanga@gmail.com',
+    age: 28
+  },
+  {
+    _id: ObjectId("654dfe565afe897c6b61418a"),
+    name: 'Monisha',
+    email: 'Monisha@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId("654dfe565afe897c6b61418b"),
+    name: 'Dinesh',
+    email: 'dinesh@gmail.com',
+    age: 30
+  },
+  {
+    _id: ObjectId("654dff105afe897c6b61418c"),
+    name: 'Kannan',
+    email: 'kannan@gmail.com',
+    age: 33
+  },
+  {
+    _id: ObjectId("654dff105afe897c6b61418d"),
+    name: 'Ajith',
+    email: 'ajith@gmail.com',
+    age: 23
+  },
+  {
+    _id: ObjectId("654dff105afe897c6b61418e"),
+    name: 'Arun',
+    email: 'arun@gmail.com',
+    age: 27
+  },
+  {
+    _id: ObjectId("654dff105afe897c6b61418f"),
+    name: 'Vallavan',
+    email: 'vallavan@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId("654dff105afe897c6b614190"),
+    name: 'Manikkam',
+    email: 'manikkam@gmail.com',
+    age: 29
+  },
+  {
+    _id: ObjectId("654dff9b5afe897c6b614191"),
+    name: 'John',
+    email: 'john@gmail.com',
+    age: 33
+  },
+  {
+    _id: ObjectId("654dff9b5afe897c6b614192"),
+    name: 'Hasini',
+    email: 'hasini@gmail.com',
+    age: 23
+  },
+  {
+    _id: ObjectId("654dff9b5afe897c6b614193"),
+    name: 'Durga',
+    email: 'durga@gmail.com',
+    age: 27
+  },
+  {
+    _id: ObjectId("654dff9b5afe897c6b614194"),
+    name: 'Vinoth',
+    email: 'vinoth@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId("654dff9b5afe897c6b614195"),
+    name: 'Praveena',
+    email: 'praveena@gmail.com',
+    age: 30
+  }
+]
+
+
+________________________________________________________________CodeKata Collection Created_________________________________________________________________
+
+
+zen_class_programme> db.codekata.insertMany([{userId: ObjectId("654dcb005afe897c6b61417d"), problemSolved: 50}, {userId: ObjectId("654dcb005afe897c6b61417e"), problemSolved: 70}, {userId: ObjectId("654dcb005afe897c6b61417f"), problemSolved: 60}, {userId: ObjectId("654dcb005afe897c6b614180"), problemSolved: 40}, {userId: ObjectId("654dcb005afe897c6b614181"), problemSolved: 45}, {userId: ObjectId("654dfe565afe897c6b614187"), problemSolved: 35}, {userId: ObjectId("654dfe565afe897c6b614188"), problemSolved: 80}, {userId: ObjectId("654dfe565afe897c6b614189"), problemSolved: 45}, {userId: ObjectId("654dfe565afe897c6b61418a"), problemSolved: 80}, {userId: ObjectId("654dfe565afe897c6b61418b"), problemSolved: 55}, {userId: ObjectId("654dff105afe897c6b61418c"), problemSolved: 40}, {userId: ObjectId("654dff105afe897c6b61418d"), problemSolved: 90}, {userId: ObjectId("654dff105afe897c6b61418e"), problemSolved: 43}, {userId: ObjectId("654dff105afe897c6b61418f"), problemSolved: 82}, {userId: ObjectId("654dff105afe897c6b614190"), problemSolved: 15}, {userId: ObjectId("654dff9b5afe897c6b614191"), problemSolved: 10}, {userId: ObjectId("654dff9b5afe897c6b614192"), problemSolved: 25}, {userId: ObjectId("654dff9b5afe897c6b614193"), problemSolved: 60}, {userId: ObjectId("654dff9b5afe897c6b614194"), problemSolved: 70}, {userId: ObjectId("654dff9b5afe897c6b614195"), problemSolved: 05}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e02fc5afe897c6b614196"),
+    '1': ObjectId("654e02fc5afe897c6b614197"),
+    '2': ObjectId("654e02fc5afe897c6b614198"),
+    '3': ObjectId("654e02fc5afe897c6b614199"),
+    '4': ObjectId("654e02fc5afe897c6b61419a"),
+    '5': ObjectId("654e02fc5afe897c6b61419b"),
+    '6': ObjectId("654e02fc5afe897c6b61419c"),
+    '7': ObjectId("654e02fc5afe897c6b61419d"),
+    '8': ObjectId("654e02fc5afe897c6b61419e"),
+    '9': ObjectId("654e02fc5afe897c6b61419f"),
+    '10': ObjectId("654e02fc5afe897c6b6141a0"),
+    '11': ObjectId("654e02fc5afe897c6b6141a1"),
+    '12': ObjectId("654e02fc5afe897c6b6141a2"),
+    '13': ObjectId("654e02fc5afe897c6b6141a3"),
+    '14': ObjectId("654e02fc5afe897c6b6141a4")
+    '15': ObjectId("654dcce55afe897c6b614182"),
+    '16': ObjectId("654dcce55afe897c6b614183"),
+    '17': ObjectId("654dcce55afe897c6b614184"),
+    '18': ObjectId("654dcce55afe897c6b614185"),
+    '19': ObjectId("654dcce55afe897c6b614186")
+  }
+}
+
+zen_class_programme> db.codekata.find({});
+[
+  {
+    _id: ObjectId("654dcce55afe897c6b614182"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    problemSolved: 50
+  },
+  {
+    _id: ObjectId("654dcce55afe897c6b614183"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    problemSolved: 70
+  },
+  {
+    _id: ObjectId("654dcce55afe897c6b614184"),
+    userId: ObjectId("654dcb005afe897c6b61417f"),
+    problemSolved: 60
+  },
+  {
+    _id: ObjectId("654dcce55afe897c6b614185"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    problemSolved: 40
+  },
+  {
+    _id: ObjectId("654dcce55afe897c6b614186"),
+    userId: ObjectId("654dcb005afe897c6b614181"),
+    problemSolved: 45
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b614196"),
+    userId: ObjectId("654dfe565afe897c6b614187"),
+    problemSolved: 35
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b614197"),
+    userId: ObjectId("654dfe565afe897c6b614188"),
+    problemSolved: 80
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b614198"),
+    userId: ObjectId("654dfe565afe897c6b614189"),
+    problemSolved: 45
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b614199"),
+    userId: ObjectId("654dfe565afe897c6b61418a"),
+    problemSolved: 80
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419a"),
+    userId: ObjectId("654dfe565afe897c6b61418b"),
+    problemSolved: 55
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419b"),
+    userId: ObjectId("654dff105afe897c6b61418c"),
+    problemSolved: 40
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419c"),
+    userId: ObjectId("654dff105afe897c6b61418d"),
+    problemSolved: 90
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419d"),
+    userId: ObjectId("654dff105afe897c6b61418e"),
+    problemSolved: 43
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419e"),
+    userId: ObjectId("654dff105afe897c6b61418f"),
+    problemSolved: 82
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b61419f"),
+    userId: ObjectId("654dff105afe897c6b614190"),
+    problemSolved: 15
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b6141a0"),
+    userId: ObjectId("654dff9b5afe897c6b614191"),
+    problemSolved: 10
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b6141a1"),
+    userId: ObjectId("654dff9b5afe897c6b614192"),
+    problemSolved: 25
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b6141a2"),
+    userId: ObjectId("654dff9b5afe897c6b614193"),
+    problemSolved: 60
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b6141a3"),
+    userId: ObjectId("654dff9b5afe897c6b614194"),
+    problemSolved: 70
+  },
+  {
+    _id: ObjectId("654e02fc5afe897c6b6141a4"),
+    userId: ObjectId("654dff9b5afe897c6b614195"),
+    problemSolved: 5
+  }
+]
+
+
+_________________________________________________________________Attendance Collection Created_______________________________________________________________
+
+
+zen_class_programme> db.attendance.insertMany([{userId: ObjectId("654dcb005afe897c6b61417d"), date: new Date("2023-10-10T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dcb005afe897c6b61417e"), date: new Date("2023-10-11T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dcb005afe897c6b61417f"), date: new Date("2023-10-12T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dcb005afe897c6b614180"), date: new Date("2023-10-13T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dcb005afe897c6b614181"), date: new Date("2023-10-14T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dfe565afe897c6b614187"), date: new Date("2023-10-15T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dfe565afe897c6b614188"), date: new Date("2023-10-16T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dfe565afe897c6b614189"), date: new Date("2023-10-17T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dfe565afe897c6b61418a"), date: new Date("2023-10-18T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dfe565afe897c6b61418b"), date: new Date("2023-10-19T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff105afe897c6b61418c"), date: new Date("2023-10-20T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dff105afe897c6b61418d"), date: new Date("2023-10-21T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff105afe897c6b61418e"), date: new Date("2023-10-22T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff105afe897c6b61418f"), date: new Date("2023-10-23T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff105afe897c6b614190"), date: new Date("2023-10-24T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dff9b5afe897c6b614191"), date: new Date("2023-10-25T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff9b5afe897c6b614192"), date: new Date("2023-10-26T12:00:00Z"), status: "Absent"}, {userId: ObjectId("654dff9b5afe897c6b614193"), date: new Date("2023-10-27T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff9b5afe897c6b614194"), date: new Date("2023-10-28T12:00:00Z"), status: "Present"}, {userId: ObjectId("654dff9b5afe897c6b614195"), date: new Date("2023-10-29T12:00:00Z"), status: "Absent"}]);
+{
+  acknowledged: true,
+  insertedIds: { 
+    '0': ObjectId("654e0ef25afe897c6b6141a5")
+    '1': ObjectId("654e11865afe897c6b6141a6"),
+    '2': ObjectId("654e11865afe897c6b6141a7"),
+    '3': ObjectId("654e11865afe897c6b6141a8"),
+    '4': ObjectId("654e11865afe897c6b6141a9"),
+    '5': ObjectId("654e11865afe897c6b6141aa"),
+    '6': ObjectId("654e11865afe897c6b6141ab"),
+    '7': ObjectId("654e11865afe897c6b6141ac"),
+    '8': ObjectId("654e11865afe897c6b6141ad"),
+    '9': ObjectId("654e11865afe897c6b6141ae"),
+    '10': ObjectId("654e11865afe897c6b6141af"),
+    '11': ObjectId("654e11865afe897c6b6141b0"),
+    '12': ObjectId("654e11865afe897c6b6141b1"),
+    '13': ObjectId("654e11865afe897c6b6141b2"),
+    '14': ObjectId("654e11865afe897c6b6141b3"),
+    '15': ObjectId("654e11865afe897c6b6141b4"),
+    '16': ObjectId("654e11865afe897c6b6141b5"),
+    '17': ObjectId("654e11865afe897c6b6141b6"),
+    '18': ObjectId("654e11865afe897c6b6141b7"),
+    '19': ObjectId("654e11865afe897c6b6141b8")
+ }
+}
+
+zen_class_programme> db.attendance.find({});
+[
+  {
+    _id: ObjectId("654e0ef25afe897c6b6141a5"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    date: ISODate("2023-10-10T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141a6"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    date: ISODate("2023-10-11T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141a7"),
+    userId: ObjectId("654dcb005afe897c6b61417f"),
+    date: ISODate("2023-10-12T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141a8"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    date: ISODate("2023-10-13T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141a9"),
+    userId: ObjectId("654dcb005afe897c6b614181"),
+    date: ISODate("2023-10-14T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141aa"),
+    userId: ObjectId("654dfe565afe897c6b614187"),
+    date: ISODate("2023-10-15T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141ab"),
+    userId: ObjectId("654dfe565afe897c6b614188"),
+    date: ISODate("2023-10-16T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141ac"),
+    userId: ObjectId("654dfe565afe897c6b614189"),
+    date: ISODate("2023-10-17T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141ad"),
+    userId: ObjectId("654dfe565afe897c6b61418a"),
+    date: ISODate("2023-10-18T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141ae"),
+    userId: ObjectId("654dfe565afe897c6b61418b"),
+    date: ISODate("2023-10-19T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141af"),
+    userId: ObjectId("654dff105afe897c6b61418c"),
+    date: ISODate("2023-10-20T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b0"),
+    userId: ObjectId("654dff105afe897c6b61418d"),
+    date: ISODate("2023-10-21T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b1"),
+    userId: ObjectId("654dff105afe897c6b61418e"),
+    date: ISODate("2023-10-22T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b2"),
+    userId: ObjectId("654dff105afe897c6b61418f"),
+    date: ISODate("2023-10-23T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b3"),
+    userId: ObjectId("654dff105afe897c6b614190"),
+    date: ISODate("2023-10-24T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b4"),
+    userId: ObjectId("654dff9b5afe897c6b614191"),
+    date: ISODate("2023-10-25T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b5"),
+    userId: ObjectId("654dff9b5afe897c6b614192"),
+    date: ISODate("2023-10-26T12:00:00.000Z"),
+    status: 'Absent'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b6"),
+    userId: ObjectId("654dff9b5afe897c6b614193"),
+    date: ISODate("2023-10-27T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b7"),
+    userId: ObjectId("654dff9b5afe897c6b614194"),
+    date: ISODate("2023-10-28T12:00:00.000Z"),
+    status: 'Present'
+  },
+  {
+    _id: ObjectId("654e11865afe897c6b6141b8"),
+    userId: ObjectId("654dff9b5afe897c6b614195"),
+    date: ISODate("2023-10-29T12:00:00.000Z"),
+    status: 'Absent'
+  }
+]
+
+
+_______________________________________________________________Topics Collection Created_________________________________________________________________________
+
+
+zen_class_programme> db.topics.insertMany([{name: "JavaScript Day 1", date: ISODate("2023-10-10T12:00:00.000Z")}, {name: "JavaScript Day 2", date: ISODate("2023-10-11T12:00:00.000Z")}, {name: "JavaScript Day 3", date: ISODate("2023-10-12T12:00:00.000Z")}, {name: "JavaScript Day 4", date: ISODate("2023-10-13T12:00:00.000Z")}, {name: "JavaScript Day 5", date: ISODate("2023-10-14T12:00:00.000Z")}, {name: "HTML Day 1", date: ISODate("2023-10-15T12:00:00.000Z")}, {name: "HTML Day 2", date: ISODate("2023-10-16T12:00:00.000Z")}, {name: "HTML Day 3", date: ISODate("2023-10-17T12:00:00.000Z")}, {name: "CSS Day 1", date: ISODate("2023-10-18T12:00:00.000Z")}, {name: "CSS Day 2", date: ISODate("2023-10-19T12:00:00.000Z")}, {name: "Boostrap Day 1", date: ISODate("2023-10-20T12:00:00.000Z")}, {name: "Boostrap Day 2", date: ISODate("2023-10-21T12:00:00.000Z")}, {name: "DOM Day 1", date: ISODate("2023-10-22T12:00:00.000Z")}, {name: "DOM Day 2", date: ISODate("2023-10-23T12:00:00.000Z")}, {name: "DOM Day 3", date: ISODate("2023-10-24T12:00:00.000Z")}, {name: "Async and Await", date: ISODate("2023-10-25T12:00:00.000Z")}, {name: "Promises", date: ISODate("2023-10-26T12:00:00.000Z")}, {name: "Call back Functions", date: ISODate("2023-10-27T12:00:00.000Z")}, {name: "React Day 1", date: ISODate("2023-10-28T12:00:00.000Z")}, {name: "React Day 2", date: ISODate("2023-10-29T12:00:00.000Z")}, {name: "React Day 3", date: ISODate("2023-10-30T12:00:00.000Z")}, {name: "React Day 4", date: ISODate("2023-10-31T12:00:00.000Z")}, {name: "Database Day 1", date: ISODate("2023-11-01T12:00:00.000Z")}, {name: "DataBase Day 2", date: ISODate("2023-11-02T12:00:00.000Z")}, {name: "Mongo DB Day 1", date: ISODate("2023-11-03T12:00:00.000Z")}, {name: "Monga DB Day 2", date: ISODate("2023-11-04T12:00:00.000Z")}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e2dc45afe897c6b6141bd"),
+    '1': ObjectId("654e2dc45afe897c6b6141be"),
+    '2': ObjectId("654e2dc45afe897c6b6141bf"),
+    '3': ObjectId("654e2dc45afe897c6b6141c0"),
+    '4': ObjectId("654e2dc45afe897c6b6141c1"),
+    '5': ObjectId("654e2dc45afe897c6b6141c2"),
+    '6': ObjectId("654e2dc45afe897c6b6141c3"),
+    '7': ObjectId("654e2dc45afe897c6b6141c4"),
+    '8': ObjectId("654e2dc45afe897c6b6141c5"),
+    '9': ObjectId("654e2dc45afe897c6b6141c6"),
+    '10': ObjectId("654e2dc45afe897c6b6141c7"),
+    '11': ObjectId("654e2dc45afe897c6b6141c8"),
+    '12': ObjectId("654e2dc45afe897c6b6141c9"),
+    '13': ObjectId("654e2dc45afe897c6b6141ca"),
+    '14': ObjectId("654e2dc45afe897c6b6141cb"),
+    '15': ObjectId("654e2dc45afe897c6b6141cc"),
+    '16': ObjectId("654e2dc45afe897c6b6141cd"),
+    '17': ObjectId("654e2dc45afe897c6b6141ce"),
+    '18': ObjectId("654e2dc45afe897c6b6141cf"),
+    '19': ObjectId("654e2dc45afe897c6b6141d0"),
+    '20': ObjectId("654e4deb5afe897c6b6141d1"),
+    '21': ObjectId("654e4deb5afe897c6b6141d2"),
+    '22': ObjectId("654e4deb5afe897c6b6141d3"),
+    '23': ObjectId("654e4deb5afe897c6b6141d4"),
+    '24': ObjectId("654e4deb5afe897c6b6141d5"),
+    '25': ObjectId("654e4deb5afe897c6b6141d6")
+  }
+}
+
+zen_class_programme> db.topics.find({});
+[
+  {
+    _id: ObjectId("654e2d155afe897c6b6141bc"),
+    name: 'JavaScript Day 1',
+    date: ISODate("2023-10-10T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141bd"),
+    name: 'JavaScript Day 1',
+    date: ISODate("2023-10-10T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141be"),
+    name: 'JavaScript Day 2',
+    date: ISODate("2023-10-11T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141bf"),
+    name: 'JavaScript Day 3',
+    date: ISODate("2023-10-12T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c0"),
+    name: 'JavaScript Day 4',
+    date: ISODate("2023-10-13T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c1"),
+    name: 'JavaScript Day 5',
+    date: ISODate("2023-10-14T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c2"),
+    name: 'HTML Day 1',
+    date: ISODate("2023-10-15T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c3"),
+    name: 'HTML Day 2',
+    date: ISODate("2023-10-16T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c4"),
+    name: 'HTML Day 3',
+    date: ISODate("2023-10-17T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c5"),
+    name: 'CSS Day 1',
+    date: ISODate("2023-10-18T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c6"),
+    name: 'CSS Day 2',
+    date: ISODate("2023-10-19T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c7"),
+    name: 'Boostrap Day 1',
+    date: ISODate("2023-10-20T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c8"),
+    name: 'Boostrap Day 2',
+    date: ISODate("2023-10-21T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c9"),
+    name: 'DOM Day 1',
+    date: ISODate("2023-10-22T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141ca"),
+    name: 'DOM Day 2',
+    date: ISODate("2023-10-23T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cb"),
+    name: 'DOM Day 3',
+    date: ISODate("2023-10-24T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cc"),
+    name: 'Async and Await',
+    date: ISODate("2023-10-25T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cd"),
+    name: 'Promises',
+    date: ISODate("2023-10-26T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141ce"),
+    name: 'Call back Functions',
+    date: ISODate("2023-10-27T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cf"),
+    name: 'React Day 1',
+    date: ISODate("2023-10-28T12:00:00.000Z")
+  }
+]
+Type "it" for more
+zen_class_programme> it
+[
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141d0"),
+    name: 'React Day 2',
+    date: ISODate("2023-10-29T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d1"),
+    name: 'React Day 3',
+    date: ISODate("2023-10-30T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d2"),
+    name: 'React Day 4',
+    date: ISODate("2023-10-31T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d3"),
+    name: 'Database Day 1',
+    date: ISODate("2023-11-01T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d4"),
+    name: 'DataBase Day 2',
+    date: ISODate("2023-11-02T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d5"),
+    name: 'Mongo DB Day 1',
+    date: ISODate("2023-11-03T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d6"),
+    name: 'Monga DB Day 2',
+    date: ISODate("2023-11-04T12:00:00.000Z")
+  }
+]
+
+
+________________________________________________________________________Tasks Collection Created_____________________________________________________________________
+
+
+zen_class_programme> db.tasks.insertMany([{userId: ObjectId("654dcb005afe897c6b61417d"), date: ISODate("2023-10-10T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141bd")}, {userId: ObjectId("654dcb005afe897c6b61417e"), date: ISODate("2023-10-11T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141be")}, {userId: ObjectId("654dcb005afe897c6b61417f"), date: ISODate("2023-10-12T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141bf")}, {userId: ObjectId("654dcb005afe897c6b614180"), date: ISODate("2023-10-13T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141c0")}, {userId: ObjectId("654dcb005afe897c6b614181"), date: ISODate("2023-10-14T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c1")}, {userId: ObjectId("654dfe565afe897c6b614187"), date: ISODate("2023-10-14T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141c2")}, {userId: ObjectId("654dfe565afe897c6b614188"), date: ISODate("2023-10-15T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c3")}, {userId: ObjectId("654dfe565afe897c6b614189"), date: ISODate("2023-10-16T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c4")}, {userId: ObjectId("654dfe565afe897c6b61418a"), date: ISODate("2023-10-17T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141c5")}, {userId: ObjectId("654dfe565afe897c6b61418b"), date: ISODate("2023-10-18T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c6")}, {userId: ObjectId("654dff105afe897c6b61418c"), date: ISODate("2023-10-19T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c7")}, {userId: ObjectId("654dff105afe897c6b61418d"), date: ISODate("2023-10-20T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141c8")}, {userId: ObjectId("654dff105afe897c6b61418e"), date: ISODate("2023-10-21T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141c9")}, {userId: ObjectId("654dff105afe897c6b61418f"), date: ISODate("2023-10-22T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141ca")}, {userId: ObjectId("654dff105afe897c6b614190"), date: ISODate("2023-10-23T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141cb")}, {userId: ObjectId("654dff9b5afe897c6b614191"), date: ISODate("2023-10-24T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141cc")}, {userId: ObjectId("654dff9b5afe897c6b614192"), date: ISODate("2023-10-25T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141cd")}, {userId: ObjectId("654dff9b5afe897c6b614193"), date: ISODate("2023-10-26T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141ce")}, {userId: ObjectId("654dff9b5afe897c6b614194"), date: ISODate("2023-10-27T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e2dc45afe897c6b6141cf")}, {userId: ObjectId("654dff9b5afe897c6b614195"), date: ISODate("2023-10-28T12:00:00.000Z"), submitted: false, topicId: ObjectId("654e2dc45afe897c6b6141d0")}, {userId: ObjectId("654dcb005afe897c6b61417d"), date: ISODate("2023-10-29T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e4deb5afe897c6b6141d1")}, {userId: ObjectId("654dcb005afe897c6b61417e"), date: ISODate("2023-10-30T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e4deb5afe897c6b6141d2")}, {userId: ObjectId("654dcb005afe897c6b614180"), date: ISODate("2023-10-31T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e4deb5afe897c6b6141d3")}, {userId: ObjectId("654dfe565afe897c6b614187"), date: ISODate("2023-11-01T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e4deb5afe897c6b6141d4")}, {userId: ObjectId("654dfe565afe897c6b61418b"), date: ISODate("2023-11-02T12:00:00.000Z"), submitted: true, topicId: ObjectId("654e4deb5afe897c6b6141d6")}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e50e25afe897c6b6141d7"),
+    '1': ObjectId("654e6dea5afe897c6b6141d8"),
+    '2': ObjectId("654e6dea5afe897c6b6141d9"),
+    '3': ObjectId("654e6dea5afe897c6b6141da"),
+    '4': ObjectId("654e6dea5afe897c6b6141db"),
+    '5': ObjectId("654e6dea5afe897c6b6141dc"),
+    '6': ObjectId("654e6dea5afe897c6b6141dd"),
+    '7': ObjectId("654e6dea5afe897c6b6141de"),
+    '8': ObjectId("654e6dea5afe897c6b6141df"),
+    '9': ObjectId("654e6dea5afe897c6b6141e0"),
+    '10': ObjectId("654e6dea5afe897c6b6141e1"),
+    '11': ObjectId("654e6dea5afe897c6b6141e2"),
+    '12': ObjectId("654e6dea5afe897c6b6141e3"),
+    '13': ObjectId("654e6dea5afe897c6b6141e4"),
+    '14': ObjectId("654e6dea5afe897c6b6141e5"),
+    '15': ObjectId("654e6dea5afe897c6b6141e6"),
+    '16': ObjectId("654e6dea5afe897c6b6141e7"),
+    '17': ObjectId("654e6dea5afe897c6b6141e8"),
+    '18': ObjectId("654e6dea5afe897c6b6141e9"),
+    '19': ObjectId("654e6dea5afe897c6b6141ea"),
+    '20': ObjectId("654e6dea5afe897c6b6141eb"),
+    '21': ObjectId("654e6dea5afe897c6b6141ec"),
+    '22': ObjectId("654e6dea5afe897c6b6141ed"),
+    '23': ObjectId("654e6dea5afe897c6b6141ee"),
+    '24': ObjectId("654e6dea5afe897c6b6141ef")
+  }
+}
+
+zen_class_programme> db.tasks.find({});
+[
+  {
+    _id: ObjectId("654e50e25afe897c6b6141d7"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    date: ISODate("2023-10-10T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141bd")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141d8"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    date: ISODate("2023-10-11T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141be")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141d9"),
+    userId: ObjectId("654dcb005afe897c6b61417f"),
+    date: ISODate("2023-10-12T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141bf")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141da"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    date: ISODate("2023-10-13T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c0")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141db"),
+    userId: ObjectId("654dcb005afe897c6b614181"),
+    date: ISODate("2023-10-14T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c1")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141dc"),
+    userId: ObjectId("654dfe565afe897c6b614187"),
+    date: ISODate("2023-10-14T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c2")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141dd"),
+    userId: ObjectId("654dfe565afe897c6b614188"),
+    date: ISODate("2023-10-15T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c3")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141de"),
+    userId: ObjectId("654dfe565afe897c6b614189"),
+    date: ISODate("2023-10-16T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c4")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141df"),
+    userId: ObjectId("654dfe565afe897c6b61418a"),
+    date: ISODate("2023-10-17T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c5")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e0"),
+    userId: ObjectId("654dfe565afe897c6b61418b"),
+    date: ISODate("2023-10-18T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c6")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e1"),
+    userId: ObjectId("654dff105afe897c6b61418c"),
+    date: ISODate("2023-10-19T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c7")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e2"),
+    userId: ObjectId("654dff105afe897c6b61418d"),
+    date: ISODate("2023-10-20T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c8")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e3"),
+    userId: ObjectId("654dff105afe897c6b61418e"),
+    date: ISODate("2023-10-21T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c9")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e4"),
+    userId: ObjectId("654dff105afe897c6b61418f"),
+    date: ISODate("2023-10-22T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141ca")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e5"),
+    userId: ObjectId("654dff105afe897c6b614190"),
+    date: ISODate("2023-10-23T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cb")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e6"),
+    userId: ObjectId("654dff9b5afe897c6b614191"),
+    date: ISODate("2023-10-24T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141cc")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e7"),
+    userId: ObjectId("654dff9b5afe897c6b614192"),
+    date: ISODate("2023-10-25T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cd")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e8"),
+    userId: ObjectId("654dff9b5afe897c6b614193"),
+    date: ISODate("2023-10-26T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141ce")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e9"),
+    userId: ObjectId("654dff9b5afe897c6b614194"),
+    date: ISODate("2023-10-27T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cf")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141ea"),
+    userId: ObjectId("654dff9b5afe897c6b614195"),
+    date: ISODate("2023-10-28T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141d0")
+  }
+]
+
+
+__________________________________________________________________Company_Drives Collection Created___________________________________________________________________
+
+
+zen_class_programme> db.company_drives.insertMany([{companyName: "Zoho", date: ISODate("2023-10-10T12:00:00.000Z")}, {companyName: "Infosys", date: ISODate("2023-10-11T12:00:00.000Z")}, {companyName: "Google", date: ISODate("2023-10-12T12:00:00.000Z")}, {companyName: "Microsoft", date: ISODate("2023-10-13T12:00:00.000Z")}, {companyName: "Full Creative", date: ISODate("2023-10-14T12:00:00.000Z")}, {companyName: "Cisco", date: ISODate("2023-10-15T12:00:00.000Z")}, {companyName: "CSS Corp", date: ISODate("2023-10-16T12:00:00.000Z")}, {companyName: "Paripoorna", date: ISODate("2023-10-17T12:00:00.000Z")}, {companyName: "Solix", date: ISODate("2023-10-18T12:00:00.000Z")}, {companyName: "Hita Soft", date: ISODate("2023-10-19T12:00:00.000Z")}, {companyName: "Daily Works", date: ISODate("2023-10-20T12:00:00.000Z")}, {companyName: "Guvi", date: ISODate("2023-10-21T12:00:00.000Z")}, {companyName: "HP", date: ISODate("2023-10-22T12:00:00.000Z")}, {companyName: "Dell", date: ISODate("2023-10-23T12:00:00.000Z")}, {companyName: "Acer", date: ISODate("2023-10-24T12:00:00.000Z")}, {companyName: "Lenovo", date: ISODate("2023-10-25T12:00:00.000Z")}, {companyName: "Philips", date: ISODate("2023-10-26T12:00:00.000Z")}, {companyName: "Tool Jet", date: ISODate("2023-10-27T12:00:00.000Z")}, {companyName: "Clarity", date: ISODate("2023-10-28T12:00:00.000Z")}, {companyName: "Koyal", date: ISODate("2023-10-29T12:00:00.000Z")}, {companyName: "Straive", date: ISODate("2023-10-30T12:00:00.000Z")}, {companyName: "Ezio", date: ISODate("2023-10-31T12:00:00.000Z")}, {companyName: "Cycats", date: ISODate("2023-11-01T12:00:00.000Z")}, {companyName: "Accenture", date: ISODate("2023-11-02T12:00:00.000Z")}, {companyName: "Tech Mahindra", date: ISODate("2023-11-03T12:00:00.000Z")}, {companyName: "TCS", date: ISODate("2023-11-04T12:00:00.000Z")}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e78c25afe897c6b6141f0"),
+    '1': ObjectId("654e78c25afe897c6b6141f1"),
+    '2': ObjectId("654e78c25afe897c6b6141f2"),
+    '3': ObjectId("654e78c25afe897c6b6141f3"),
+    '4': ObjectId("654e78c25afe897c6b6141f4"),
+    '5': ObjectId("654e78c25afe897c6b6141f5"),
+    '6': ObjectId("654e78c25afe897c6b6141f6"),
+    '7': ObjectId("654e78c25afe897c6b6141f7"),
+    '8': ObjectId("654e78c25afe897c6b6141f8"),
+    '9': ObjectId("654e78c25afe897c6b6141f9"),
+    '10': ObjectId("654e78c25afe897c6b6141fa"),
+    '11': ObjectId("654e78c25afe897c6b6141fb"),
+    '12': ObjectId("654e78c25afe897c6b6141fc"),
+    '13': ObjectId("654e78c25afe897c6b6141fd"),
+    '14': ObjectId("654e78c25afe897c6b6141fe"),
+    '15': ObjectId("654e78c25afe897c6b6141ff"),
+    '16': ObjectId("654e78c25afe897c6b614200"),
+    '17': ObjectId("654e78c25afe897c6b614201"),
+    '18': ObjectId("654e78c25afe897c6b614202"),
+    '19': ObjectId("654e78c25afe897c6b614203"),
+    '20': ObjectId("654e78c25afe897c6b614204"),
+    '21': ObjectId("654e78c25afe897c6b614205"),
+    '22': ObjectId("654e78c25afe897c6b614206"),
+    '23': ObjectId("654e78c25afe897c6b614207"),
+    '24': ObjectId("654e78c25afe897c6b614208"),
+    '25': ObjectId("654e78c25afe897c6b614209")
+  }
+}
+
+
+zen_class_programme> db.company_drives.find({});
+[
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f0"),
+    companyName: 'Zoho',
+    date: ISODate("2023-10-10T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f1"),
+    companyName: 'Infosys',
+    date: ISODate("2023-10-11T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f2"),
+    companyName: 'Google',
+    date: ISODate("2023-10-12T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f3"),
+    companyName: 'Microsoft',
+    date: ISODate("2023-10-13T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f4"),
+    companyName: 'Full Creative',
+    date: ISODate("2023-10-14T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f5"),
+    companyName: 'Cisco',
+    date: ISODate("2023-10-15T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f6"),
+    companyName: 'CSS Corp',
+    date: ISODate("2023-10-16T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f7"),
+    companyName: 'Paripoorna',
+    date: ISODate("2023-10-17T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f8"),
+    companyName: 'Solix',
+    date: ISODate("2023-10-18T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141f9"),
+    companyName: 'Hita Soft',
+    date: ISODate("2023-10-19T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141fa"),
+    companyName: 'Daily Works',
+    date: ISODate("2023-10-20T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141fb"),
+    companyName: 'Guvi',
+    date: ISODate("2023-10-21T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141fc"),
+    companyName: 'HP',
+    date: ISODate("2023-10-22T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141fd"),
+    companyName: 'Dell',
+    date: ISODate("2023-10-23T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141fe"),
+    companyName: 'Acer',
+    date: ISODate("2023-10-24T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b6141ff"),
+    companyName: 'Lenovo',
+    date: ISODate("2023-10-25T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614200"),
+    companyName: 'Philips',
+    date: ISODate("2023-10-26T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614201"),
+    companyName: 'Tool Jet',
+    date: ISODate("2023-10-27T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614202"),
+    companyName: 'Clarity',
+    date: ISODate("2023-10-28T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614203"),
+    companyName: 'Koyal',
+    date: ISODate("2023-10-29T12:00:00.000Z")
+  }
+]
+Type "it" for more
+zen_class_programme> it
+[
+  {
+    _id: ObjectId("654e78c25afe897c6b614204"),
+    companyName: 'Straive',
+    date: ISODate("2023-10-30T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614205"),
+    companyName: 'Ezio',
+    date: ISODate("2023-10-31T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614206"),
+    companyName: 'Cycats',
+    date: ISODate("2023-11-01T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614207"),
+    companyName: 'Accenture',
+    date: ISODate("2023-11-02T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614208"),
+    companyName: 'Tech Mahindra',
+    date: ISODate("2023-11-03T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e78c25afe897c6b614209"),
+    companyName: 'TCS',
+    date: ISODate("2023-11-04T12:00:00.000Z")
+  }
+]
+
+
+_______________________________________________________________________Placements Collection Created______________________________________________________________
+
+
+zen_class_programme> db.placements.insertMany([{userId: ObjectId("654dcb005afe897c6b61417d"), driveId: ObjectId("654e78c25afe897c6b6141f0"), placements: "Selected"}, {userId: ObjectId("654dcb005afe897c6b61417e"), driveId: ObjectId("654e78c25afe897c6b6141f1"), placements: "Selected"}, {userId: ObjectId("654dcb005afe897c6b614181"), driveId: ObjectId("654e78c25afe897c6b6141f2"), placements: "Selected"}, {userId: ObjectId("654dfe565afe897c6b614187"), driveId: ObjectId("654e78c25afe897c6b6141f3"), placements: "Selected"}, {userId: ObjectId("654dfe565afe897c6b614188"), driveId: ObjectId("654e78c25afe897c6b6141f4"), placements: "Selected"}, {userId: ObjectId("654dfe565afe897c6b614189"), driveId: ObjectId("654e78c25afe897c6b6141f5"), placements: "Selected"}, {userId: ObjectId("654dfe565afe897c6b61418b"), driveId: ObjectId("654e78c25afe897c6b6141f6"), placements: "Selected"}, {userId: ObjectId("654dff105afe897c6b61418d"), driveId: ObjectId("654e78c25afe897c6b6141f8"), placements: "Selected"}, {userId: ObjectId("654dff9b5afe897c6b614192"), driveId: ObjectId("654e78c25afe897c6b6141fa"), placements: "Selected"}, {userId: ObjectId("654dff105afe897c6b61418f"), driveId: ObjectId("654e78c25afe897c6b6141fb"), placements: "Selected"}, {userId: ObjectId("654dff105afe897c6b614190"), driveId: ObjectId("654e78c25afe897c6b6141fd"), placements: "Selected"}, {userId: ObjectId("654dff9b5afe897c6b614191"), driveId: ObjectId("654e78c25afe897c6b6141ff"), placements: "Selected"}, {userId: ObjectId("654dcb005afe897c6b61417f"), driveId: ObjectId("654e78c25afe897c6b614201"), placements: "Selected"}, {userId: ObjectId("654dcb005afe897c6b614180"), driveId: ObjectId("654e78c25afe897c6b614204"), placements: "Selected"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e7c7d5afe897c6b61420a"),
+    '1': ObjectId("654e7c7d5afe897c6b61420b"),
+    '2': ObjectId("654e7c7d5afe897c6b61420c"),
+    '3': ObjectId("654e7c7d5afe897c6b61420d"),
+    '4': ObjectId("654e7c7d5afe897c6b61420e"),
+    '5': ObjectId("654e7c7d5afe897c6b61420f"),
+    '6': ObjectId("654e7c7d5afe897c6b614210"),
+    '7': ObjectId("654e7c7d5afe897c6b614211"),
+    '8': ObjectId("654e7c7d5afe897c6b614212"),
+    '9': ObjectId("654e7c7d5afe897c6b614213"),
+    '10': ObjectId("654e7c7d5afe897c6b614214"),
+    '11': ObjectId("654e7c7d5afe897c6b614215"),
+    '12': ObjectId("654e7c7d5afe897c6b614216"),
+    '13': ObjectId("654e7c7d5afe897c6b614217")
+  }
+}
+
+zen_class_programme> db.placements.find({});
+[
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420a"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    driveId: ObjectId("654e78c25afe897c6b6141f0"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420b"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    driveId: ObjectId("654e78c25afe897c6b6141f1"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420c"),
+    userId: ObjectId("654dcb005afe897c6b614181"),
+    driveId: ObjectId("654e78c25afe897c6b6141f2"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420d"),
+    userId: ObjectId("654dfe565afe897c6b614187"),
+    driveId: ObjectId("654e78c25afe897c6b6141f3"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420e"),
+    userId: ObjectId("654dfe565afe897c6b614188"),
+    driveId: ObjectId("654e78c25afe897c6b6141f4"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b61420f"),
+    userId: ObjectId("654dfe565afe897c6b614189"),
+    driveId: ObjectId("654e78c25afe897c6b6141f5"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614210"),
+    userId: ObjectId("654dfe565afe897c6b61418b"),
+    driveId: ObjectId("654e78c25afe897c6b6141f6"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614211"),
+    userId: ObjectId("654dff105afe897c6b61418d"),
+    driveId: ObjectId("654e78c25afe897c6b6141f8"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614212"),
+    userId: ObjectId("654dff9b5afe897c6b614192"),
+    driveId: ObjectId("654e78c25afe897c6b6141fa"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614213"),
+    userId: ObjectId("654dff105afe897c6b61418f"),
+    driveId: ObjectId("654e78c25afe897c6b6141fb"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614214"),
+    userId: ObjectId("654dff105afe897c6b614190"),
+    driveId: ObjectId("654e78c25afe897c6b6141fd"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614215"),
+    userId: ObjectId("654dff9b5afe897c6b614191"),
+    driveId: ObjectId("654e78c25afe897c6b6141ff"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614216"),
+    userId: ObjectId("654dcb005afe897c6b61417f"),
+    driveId: ObjectId("654e78c25afe897c6b614201"),
+    placements: 'Selected'
+  },
+  {
+    _id: ObjectId("654e7c7d5afe897c6b614217"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    driveId: ObjectId("654e78c25afe897c6b614204"),
+    placements: 'Selected'
+  }
+]
+
+
+_____________________________________________________________________Mentors Collection Created___________________________________________________________________
+
+
+zen_class_programme> db.mentors.insertMany([{name: "Mentor 1", menteesCount: 20}, {name: "Mentor 2", menteesCount: 18}, {name: "Mentor 3", menteesCount: 10}, {name: "Mentor 4", menteesCount: 17}, {name: "Mentor 5", menteesCount: 5}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("654e7dde5afe897c6b614218"),
+    '1': ObjectId("654e7dde5afe897c6b614219"),
+    '2': ObjectId("654e7dde5afe897c6b61421a"),
+    '3': ObjectId("654e7dde5afe897c6b61421b"),
+    '4': ObjectId("654e7dde5afe897c6b61421c")
+  }
+}
+
+zen_class_programme> db.mentors.find({});
+[
+  {
+    _id: ObjectId("654e7dde5afe897c6b614218"),
+    name: 'Mentor 1',
+    menteesCount: 20
+  },
+  {
+    _id: ObjectId("654e7dde5afe897c6b614219"),
+    name: 'Mentor 2',
+    menteesCount: 18
+  },
+  {
+    _id: ObjectId("654e7dde5afe897c6b61421a"),
+    name: 'Mentor 3',
+    menteesCount: 10
+  },
+  {
+    _id: ObjectId("654e7dde5afe897c6b61421b"),
+    name: 'Mentor 4',
+    menteesCount: 17
+  },
+  {
+    _id: ObjectId("654e7dde5afe897c6b61421c"),
+    name: 'Mentor 5',
+    menteesCount: 5
+  }
+]
+
+
+____________________________________________________All the topics which are thought in the month of October_______________________________________________________
+
+
+
+zen_class_programme> db.topics.find({date: {$gte: ISODate("2023-10-01T12:00:00.000Z"), $lt: ISODate("2023-11-01T12:00:00.000Z")}});
+[
+  {
+    _id: ObjectId("654e2d155afe897c6b6141bc"),
+    name: 'JavaScript Day 1',
+    date: ISODate("2023-10-10T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141bd"),
+    name: 'JavaScript Day 1',
+    date: ISODate("2023-10-10T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141be"),
+    name: 'JavaScript Day 2',
+    date: ISODate("2023-10-11T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141bf"),
+    name: 'JavaScript Day 3',
+    date: ISODate("2023-10-12T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c0"),
+    name: 'JavaScript Day 4',
+    date: ISODate("2023-10-13T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c1"),
+    name: 'JavaScript Day 5',
+    date: ISODate("2023-10-14T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c2"),
+    name: 'HTML Day 1',
+    date: ISODate("2023-10-15T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c3"),
+    name: 'HTML Day 2',
+    date: ISODate("2023-10-16T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c4"),
+    name: 'HTML Day 3',
+    date: ISODate("2023-10-17T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c5"),
+    name: 'CSS Day 1',
+    date: ISODate("2023-10-18T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c6"),
+    name: 'CSS Day 2',
+    date: ISODate("2023-10-19T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c7"),
+    name: 'Boostrap Day 1',
+    date: ISODate("2023-10-20T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c8"),
+    name: 'Boostrap Day 2',
+    date: ISODate("2023-10-21T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141c9"),
+    name: 'DOM Day 1',
+    date: ISODate("2023-10-22T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141ca"),
+    name: 'DOM Day 2',
+    date: ISODate("2023-10-23T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cb"),
+    name: 'DOM Day 3',
+    date: ISODate("2023-10-24T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cc"),
+    name: 'Async and Await',
+    date: ISODate("2023-10-25T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cd"),
+    name: 'Promises',
+    date: ISODate("2023-10-26T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141ce"),
+    name: 'Call back Functions',
+    date: ISODate("2023-10-27T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141cf"),
+    name: 'React Day 1',
+    date: ISODate("2023-10-28T12:00:00.000Z")
+  }
+]
+Type "it" for more
+zen_class_programme> it
+[
+  {
+    _id: ObjectId("654e2dc45afe897c6b6141d0"),
+    name: 'React Day 2',
+    date: ISODate("2023-10-29T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d1"),
+    name: 'React Day 3',
+    date: ISODate("2023-10-30T12:00:00.000Z")
+  },
+  {
+    _id: ObjectId("654e4deb5afe897c6b6141d2"),
+    name: 'React Day 4',
+    date: ISODate("2023-10-31T12:00:00.000Z")
+  }
+]
+
+
+_______________________________________________________All the tasks which are thought in the month of October_____________________________________________________
+
+
+
+zen_class_programme> db.tasks.find({date: {$gte: ISODate("2023-10-01T12:00:00.000Z"), $lt: ISODate("2023-11-01T12:00:00.000Z")}});
+[
+  {
+    _id: ObjectId("654e50e25afe897c6b6141d7"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    date: ISODate("2023-10-10T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141bd")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141d8"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    date: ISODate("2023-10-11T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141be")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141d9"),
+    userId: ObjectId("654dcb005afe897c6b61417f"),
+    date: ISODate("2023-10-12T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141bf")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141da"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    date: ISODate("2023-10-13T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c0")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141db"),
+    userId: ObjectId("654dcb005afe897c6b614181"),
+    date: ISODate("2023-10-14T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c1")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141dc"),
+    userId: ObjectId("654dfe565afe897c6b614187"),
+    date: ISODate("2023-10-14T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c2")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141dd"),
+    userId: ObjectId("654dfe565afe897c6b614188"),
+    date: ISODate("2023-10-15T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c3")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141de"),
+    userId: ObjectId("654dfe565afe897c6b614189"),
+    date: ISODate("2023-10-16T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c4")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141df"),
+    userId: ObjectId("654dfe565afe897c6b61418a"),
+    date: ISODate("2023-10-17T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c5")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e0"),
+    userId: ObjectId("654dfe565afe897c6b61418b"),
+    date: ISODate("2023-10-18T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c6")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e1"),
+    userId: ObjectId("654dff105afe897c6b61418c"),
+    date: ISODate("2023-10-19T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c7")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e2"),
+    userId: ObjectId("654dff105afe897c6b61418d"),
+    date: ISODate("2023-10-20T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141c8")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e3"),
+    userId: ObjectId("654dff105afe897c6b61418e"),
+    date: ISODate("2023-10-21T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141c9")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e4"),
+    userId: ObjectId("654dff105afe897c6b61418f"),
+    date: ISODate("2023-10-22T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141ca")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e5"),
+    userId: ObjectId("654dff105afe897c6b614190"),
+    date: ISODate("2023-10-23T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cb")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e6"),
+    userId: ObjectId("654dff9b5afe897c6b614191"),
+    date: ISODate("2023-10-24T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141cc")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e7"),
+    userId: ObjectId("654dff9b5afe897c6b614192"),
+    date: ISODate("2023-10-25T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cd")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e8"),
+    userId: ObjectId("654dff9b5afe897c6b614193"),
+    date: ISODate("2023-10-26T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141ce")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141e9"),
+    userId: ObjectId("654dff9b5afe897c6b614194"),
+    date: ISODate("2023-10-27T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e2dc45afe897c6b6141cf")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141ea"),
+    userId: ObjectId("654dff9b5afe897c6b614195"),
+    date: ISODate("2023-10-28T12:00:00.000Z"),
+    submitted: false,
+    topicId: ObjectId("654e2dc45afe897c6b6141d0")
+  }
+]
+Type "it" for more
+zen_class_programme> it
+[
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141eb"),
+    userId: ObjectId("654dcb005afe897c6b61417d"),
+    date: ISODate("2023-10-29T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e4deb5afe897c6b6141d1")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141ec"),
+    userId: ObjectId("654dcb005afe897c6b61417e"),
+    date: ISODate("2023-10-30T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e4deb5afe897c6b6141d2")
+  },
+  {
+    _id: ObjectId("654e6dea5afe897c6b6141ed"),
+    userId: ObjectId("654dcb005afe897c6b614180"),
+    date: ISODate("2023-10-31T12:00:00.000Z"),
+    submitted: true,
+    topicId: ObjectId("654e4deb5afe897c6b6141d3")
+  }
+
+
+
+___________________________________________________All the company drives which appeared between 15 oct-2023 and 31-oct-2023__________________________________________
+
+
+
+db.company_drives.find({date: {$gte: ISODate("2023-10-15T12:00:00.000Z"), $lt: ISODate("2023-11-01T12:00:00.000Z")}});
+{
+  _id: ObjectId("654e78c25afe897c6b6141f5"),
+  companyName: 'Cisco',
+  date: 2023-10-15T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f6"),
+  companyName: 'CSS Corp',
+  date: 2023-10-16T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f7"),
+  companyName: 'Paripoorna',
+  date: 2023-10-17T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f8"),
+  companyName: 'Solix',
+  date: 2023-10-18T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f9"),
+  companyName: 'Hita Soft',
+  date: 2023-10-19T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fa"),
+  companyName: 'Daily Works',
+  date: 2023-10-20T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fb"),
+  companyName: 'Guvi',
+  date: 2023-10-21T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fc"),
+  companyName: 'HP',
+  date: 2023-10-22T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fd"),
+  companyName: 'Dell',
+  date: 2023-10-23T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fe"),
+  companyName: 'Acer',
+  date: 2023-10-24T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141ff"),
+  companyName: 'Lenovo',
+  date: 2023-10-25T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614200"),
+  companyName: 'Philips',
+  date: 2023-10-26T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614201"),
+  companyName: 'Tool Jet',
+  date: 2023-10-27T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614202"),
+  companyName: 'Clarity',
+  date: 2023-10-28T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614203"),
+  companyName: 'Koyal',
+  date: 2023-10-29T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614204"),
+  companyName: 'Straive',
+  date: 2023-10-30T12:00:00.000Z
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614205"),
+  companyName: 'Ezio',
+  date: 2023-10-31T12:00:00.000Z
+}
+
+
+
+_________________________________________________All the company drives and students who are appeared for the placement______________________________________________
+
+
+
+var drivesAndStudents = db.company_drives.aggregate([{$lookup: {from: "placements", localField: "_id", foreignField: "driveId", as: "placements"}}, {$lookup: {from: "users", localField: "placements.userId", foreignField: "_id", as: "users"}}]); drivesAndStudents.forEach(drive=>printjson(drive));
+{
+  _id: ObjectId("654e78c25afe897c6b6141f0"),
+  companyName: 'Zoho',
+  date: 2023-10-10T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420a"),
+      userId: ObjectId("654dcb005afe897c6b61417d"),
+      driveId: ObjectId("654e78c25afe897c6b6141f0"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dcb005afe897c6b61417d"),
+      name: 'Bharathan',
+      email: 'bharathan@hmail.com',
+      age: 28
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f1"),
+  companyName: 'Infosys',
+  date: 2023-10-11T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420b"),
+      userId: ObjectId("654dcb005afe897c6b61417e"),
+      driveId: ObjectId("654e78c25afe897c6b6141f1"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dcb005afe897c6b61417e"),
+      name: 'Saravanan',
+      email: 'saravanan@gmail.com',
+      age: 25
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f2"),
+  companyName: 'Google',
+  date: 2023-10-12T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420c"),
+      userId: ObjectId("654dcb005afe897c6b614181"),
+      driveId: ObjectId("654e78c25afe897c6b6141f2"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dcb005afe897c6b614181"),
+      name: 'Purosoth',
+      email: 'purusoth@gmail.com',
+      age: 28
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f3"),
+  companyName: 'Microsoft',
+  date: 2023-10-13T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420d"),
+      userId: ObjectId("654dfe565afe897c6b614187"),
+      driveId: ObjectId("654e78c25afe897c6b6141f3"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dfe565afe897c6b614187"),
+      name: 'Manoj',
+      email: 'manoj@hmail.com',
+      age: 32
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f4"),
+  companyName: 'Full Creative',
+  date: 2023-10-14T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420e"),
+      userId: ObjectId("654dfe565afe897c6b614188"),
+      driveId: ObjectId("654e78c25afe897c6b6141f4"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dfe565afe897c6b614188"),
+      name: 'Kamal',
+      email: 'kamal@gmail.com',
+      age: 24
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f5"),
+  companyName: 'Cisco',
+  date: 2023-10-15T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b61420f"),
+      userId: ObjectId("654dfe565afe897c6b614189"),
+      driveId: ObjectId("654e78c25afe897c6b6141f5"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dfe565afe897c6b614189"),
+      name: 'Priyanga',
+      email: 'priyanga@gmail.com',
+      age: 28
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f6"),
+  companyName: 'CSS Corp',
+  date: 2023-10-16T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614210"),
+      userId: ObjectId("654dfe565afe897c6b61418b"),
+      driveId: ObjectId("654e78c25afe897c6b6141f6"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dfe565afe897c6b61418b"),
+      name: 'Dinesh',
+      email: 'dinesh@gmail.com',
+      age: 30
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f7"),
+  companyName: 'Paripoorna',
+  date: 2023-10-17T12:00:00.000Z,
+  placements: [],
+  users: []
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141f8"),
+  companyName: 'Solix',
+  date: 2023-10-18T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614211"),
+      userId: ObjectId("654dff105afe897c6b61418d"),
+      driveId: ObjectId("654e78c25afe897c6b6141f8"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dff105afe897c6b61418d"),
+      name: 'Ajith',
+      email: 'ajith@gmail.com',
+      age: 23
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fa"),
+  companyName: 'Daily Works',
+  date: 2023-10-20T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614212"),
+      userId: ObjectId("654dff9b5afe897c6b614192"),
+      driveId: ObjectId("654e78c25afe897c6b6141fa"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dff9b5afe897c6b614192"),
+      name: 'Hasini',
+      email: 'hasini@gmail.com',
+      age: 23
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fb"),
+  companyName: 'Guvi',
+  date: 2023-10-21T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614213"),
+      userId: ObjectId("654dff105afe897c6b61418f"),
+      driveId: ObjectId("654e78c25afe897c6b6141fb"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dff105afe897c6b61418f"),
+      name: 'Vallavan',
+      email: 'vallavan@gmail.com',
+      age: 26
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141fd"),
+  companyName: 'Dell',
+  date: 2023-10-23T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614214"),
+      userId: ObjectId("654dff105afe897c6b614190"),
+      driveId: ObjectId("654e78c25afe897c6b6141fd"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dff105afe897c6b614190"),
+      name: 'Manikkam',
+      email: 'manikkam@gmail.com',
+      age: 29
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b6141ff"),
+  companyName: 'Lenovo',
+  date: 2023-10-25T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614215"),
+      userId: ObjectId("654dff9b5afe897c6b614191"),
+      driveId: ObjectId("654e78c25afe897c6b6141ff"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dff9b5afe897c6b614191"),
+      name: 'John',
+      email: 'john@gmail.com',
+      age: 33
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614201"),
+  companyName: 'Tool Jet',
+  date: 2023-10-27T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614216"),
+      userId: ObjectId("654dcb005afe897c6b61417f"),
+      driveId: ObjectId("654e78c25afe897c6b614201"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dcb005afe897c6b61417f"),
+      name: 'Fouziya',
+      email: 'fouziya@gmail.com',
+      age: 24
+    }
+  ]
+}
+{
+  _id: ObjectId("654e78c25afe897c6b614204"),
+  companyName: 'Straive',
+  date: 2023-10-30T12:00:00.000Z,
+  placements: [
+    {
+      _id: ObjectId("654e7c7d5afe897c6b614217"),
+      userId: ObjectId("654dcb005afe897c6b614180"),
+      driveId: ObjectId("654e78c25afe897c6b614204"),
+      placements: 'Selected'
+    }
+  ],
+  users: [
+    {
+      _id: ObjectId("654dcb005afe897c6b614180"),
+      name: 'Niranjan',
+      email: 'niranjan@gmail.com',
+      age: 29
+    }
+  ]
+}
+
+
+
+_______________________________________________________________The number of problems solved by the user in codekata__________________________________________________
+
+
+
+db.users.aggregate([
+  {
+    $lookup: {
+      from: "codekata",
+      localField: "_id",
+      foreignField: "userId",
+      as: "codekataData"
+    }
+  },
+  {
+    $project: {
+      name: 1,
+      email: 1,
+      age: 1,
+      codekataData: 1,
+      numProblemsSolved: { $size: "$codekataData" }
+    }
+  }
+]);
+
+
+{
+  _id: ObjectId("654dcb005afe897c6b61417d"),
+  name: 'Bharathan',
+  email: 'bharathan@hmail.com',
+  age: 28,
+  codekataData: [
+    {
+      _id: ObjectId("654dcce55afe897c6b614182"),
+      userId: ObjectId("654dcb005afe897c6b61417d"),
+      problemSolved: 50
+    }
+  ]
+}
+{
+  _id: ObjectId("654dcb005afe897c6b61417e"),
+  name: 'Saravanan',
+  email: 'saravanan@gmail.com',
+  age: 25,
+  codekataData: [
+    {
+      _id: ObjectId("654dcce55afe897c6b614183"),
+      userId: ObjectId("654dcb005afe897c6b61417e"),
+      problemSolved: 70
+    }
+  ]
+}
+{
+  _id: ObjectId("654dcb005afe897c6b61417f"),
+  name: 'Fouziya',
+  email: 'fouziya@gmail.com',
+  age: 24,
+  codekataData: [
+    {
+      _id: ObjectId("654dcce55afe897c6b614184"),
+      userId: ObjectId("654dcb005afe897c6b61417f"),
+      problemSolved: 60
+    }
+  ]
+}
+{
+  _id: ObjectId("654dcb005afe897c6b614180"),
+  name: 'Niranjan',
+  email: 'niranjan@gmail.com',
+  age: 29,
+  codekataData: [
+    {
+      _id: ObjectId("654dcce55afe897c6b614185"),
+      userId: ObjectId("654dcb005afe897c6b614180"),
+      problemSolved: 40
+    }
+  ]
+}
+{
+  _id: ObjectId("654dcb005afe897c6b614181"),
+  name: 'Purosoth',
+  email: 'purusoth@gmail.com',
+  age: 28,
+  codekataData: [
+    {
+      _id: ObjectId("654dcce55afe897c6b614186"),
+      userId: ObjectId("654dcb005afe897c6b614181"),
+      problemSolved: 45
+    }
+  ]
+}
+{
+  _id: ObjectId("654dfe565afe897c6b614187"),
+  name: 'Manoj',
+  email: 'manoj@hmail.com',
+  age: 32,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b614196"),
+      userId: ObjectId("654dfe565afe897c6b614187"),
+      problemSolved: 35
+    }
+  ]
+}
+{
+  _id: ObjectId("654dfe565afe897c6b614188"),
+  name: 'Kamal',
+  email: 'kamal@gmail.com',
+  age: 24,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b614197"),
+      userId: ObjectId("654dfe565afe897c6b614188"),
+      problemSolved: 80
+    }
+  ]
+}
+{
+  _id: ObjectId("654dfe565afe897c6b614189"),
+  name: 'Priyanga',
+  email: 'priyanga@gmail.com',
+  age: 28,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b614198"),
+      userId: ObjectId("654dfe565afe897c6b614189"),
+      problemSolved: 45
+    }
+  ]
+}
+{
+  _id: ObjectId("654dfe565afe897c6b61418a"),
+  name: 'Monisha',
+  email: 'Monisha@gmail.com',
+  age: 26,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b614199"),
+      userId: ObjectId("654dfe565afe897c6b61418a"),
+      problemSolved: 80
+    }
+  ]
+}
+{
+  _id: ObjectId("654dfe565afe897c6b61418b"),
+  name: 'Dinesh',
+  email: 'dinesh@gmail.com',
+  age: 30,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419a"),
+      userId: ObjectId("654dfe565afe897c6b61418b"),
+      problemSolved: 55
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff105afe897c6b61418c"),
+  name: 'Kannan',
+  email: 'kannan@gmail.com',
+  age: 33,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419b"),
+      userId: ObjectId("654dff105afe897c6b61418c"),
+      problemSolved: 40
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff105afe897c6b61418d"),
+  name: 'Ajith',
+  email: 'ajith@gmail.com',
+  age: 23,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419c"),
+      userId: ObjectId("654dff105afe897c6b61418d"),
+      problemSolved: 90
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff105afe897c6b61418e"),
+  name: 'Arun',
+  email: 'arun@gmail.com',
+  age: 27,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419d"),
+      userId: ObjectId("654dff105afe897c6b61418e"),
+      problemSolved: 43
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff105afe897c6b61418f"),
+  name: 'Vallavan',
+  email: 'vallavan@gmail.com',
+  age: 26,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419e"),
+      userId: ObjectId("654dff105afe897c6b61418f"),
+      problemSolved: 82
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff105afe897c6b614190"),
+  name: 'Manikkam',
+  email: 'manikkam@gmail.com',
+  age: 29,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b61419f"),
+      userId: ObjectId("654dff105afe897c6b614190"),
+      problemSolved: 15
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff9b5afe897c6b614191"),
+  name: 'John',
+  email: 'john@gmail.com',
+  age: 33,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b6141a0"),
+      userId: ObjectId("654dff9b5afe897c6b614191"),
+      problemSolved: 10
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff9b5afe897c6b614192"),
+  name: 'Hasini',
+  email: 'hasini@gmail.com',
+  age: 23,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b6141a1"),
+      userId: ObjectId("654dff9b5afe897c6b614192"),
+      problemSolved: 25
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff9b5afe897c6b614193"),
+  name: 'Durga',
+  email: 'durga@gmail.com',
+  age: 27,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b6141a2"),
+      userId: ObjectId("654dff9b5afe897c6b614193"),
+      problemSolved: 60
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff9b5afe897c6b614194"),
+  name: 'Vinoth',
+  email: 'vinoth@gmail.com',
+  age: 26,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b6141a3"),
+      userId: ObjectId("654dff9b5afe897c6b614194"),
+      problemSolved: 70
+    }
+  ]
+}
+{
+  _id: ObjectId("654dff9b5afe897c6b614195"),
+  name: 'Praveena',
+  email: 'praveena@gmail.com',
+  age: 30,
+  codekataData: [
+    {
+      _id: ObjectId("654e02fc5afe897c6b6141a4"),
+      userId: ObjectId("654dff9b5afe897c6b614195"),
+      problemSolved: 5
+    }
+  ]
+}
+
+
+________________________________________________________All the mentors with who has the mentee's count more than 15_________________________________________________
+
+
+
+db.mentors.find({menteesCount: {$gt: 15}});
+{
+  _id: ObjectId("654e7dde5afe897c6b614218"),
+  name: 'Mentor 1',
+  menteesCount: 20
+}
+{
+  _id: ObjectId("654e7dde5afe897c6b614219"),
+  name: 'Mentor 2',
+  menteesCount: 18
+}
+{
+  _id: ObjectId("654e7dde5afe897c6b61421b"),
+  name: 'Mentor 4',
+  menteesCount: 17
+}
+
+
+
+___________________________________________________The number of users who are absent between 15 oct-2023 and 31-oct-2023______________________________________________
+
+
+
+db.attendance.find({
+  status: "Absent",
+  date: {
+    $gte: ISODate("2023-10-15T00:00:00.000Z"),
+    $lte: ISODate("2023-11-01T23:59:59.999Z")
+  }
+});
+{
+  _id: ObjectId("654e11865afe897c6b6141aa"),
+  userId: ObjectId("654dfe565afe897c6b614187"),
+  date: 2023-10-15T12:00:00.000Z,
+  status: 'Absent'
+}
+{
+  _id: ObjectId("654e11865afe897c6b6141ad"),
+  userId: ObjectId("654dfe565afe897c6b61418a"),
+  date: 2023-10-18T12:00:00.000Z,
+  status: 'Absent'
+}
+{
+  _id: ObjectId("654e11865afe897c6b6141af"),
+  userId: ObjectId("654dff105afe897c6b61418c"),
+  date: 2023-10-20T12:00:00.000Z,
+  status: 'Absent'
+}
+{
+  _id: ObjectId("654e11865afe897c6b6141b3"),
+  userId: ObjectId("654dff105afe897c6b614190"),
+  date: 2023-10-24T12:00:00.000Z,
+  status: 'Absent'
+}
+{
+  _id: ObjectId("654e11865afe897c6b6141b5"),
+  userId: ObjectId("654dff9b5afe897c6b614192"),
+  date: 2023-10-26T12:00:00.000Z,
+  status: 'Absent'
+}
+{
+  _id: ObjectId("654e11865afe897c6b6141b8"),
+  userId: ObjectId("654dff9b5afe897c6b614195"),
+  date: 2023-10-29T12:00:00.000Z,
+  status: 'Absent'
+}
+
+
+
+____________________________________________The number of users who are task is not submitted  between 15 oct-2023 and 31-oct-2023___________________________________
+
+
+
+db.tasks.find({
+  submitted: false,
+  date: {
+    $gte: ISODate("2023-10-15T00:00:00.000Z"),
+    $lte: ISODate("2023-11-01T23:59:59.999Z")
+  }
+});
+{
+  _id: ObjectId("654e6dea5afe897c6b6141dd"),
+  userId: ObjectId("654dfe565afe897c6b614188"),
+  date: 2023-10-15T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141c3")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141de"),
+  userId: ObjectId("654dfe565afe897c6b614189"),
+  date: 2023-10-16T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141c4")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e0"),
+  userId: ObjectId("654dfe565afe897c6b61418b"),
+  date: 2023-10-18T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141c6")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e1"),
+  userId: ObjectId("654dff105afe897c6b61418c"),
+  date: 2023-10-19T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141c7")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e2"),
+  userId: ObjectId("654dff105afe897c6b61418d"),
+  date: 2023-10-20T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141c8")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e4"),
+  userId: ObjectId("654dff105afe897c6b61418f"),
+  date: 2023-10-22T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141ca")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e6"),
+  userId: ObjectId("654dff9b5afe897c6b614191"),
+  date: 2023-10-24T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141cc")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141e8"),
+  userId: ObjectId("654dff9b5afe897c6b614193"),
+  date: 2023-10-26T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141ce")
+}
+{
+  _id: ObjectId("654e6dea5afe897c6b6141ea"),
+  userId: ObjectId("654dff9b5afe897c6b614195"),
+  date: 2023-10-28T12:00:00.000Z,
+  submitted: false,
+  topicId: ObjectId("654e2dc45afe897c6b6141d0")
+}
+
+
+____________________________________________________Task Completed with my knowledge Thank you________________________________________________________________________
