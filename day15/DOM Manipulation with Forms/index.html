@@ -13,26 +13,26 @@
     <form id="form">
         <div class="form-group">
             <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" placeholder="First Name" required>
+            <input type="text" id="first-name" placeholder="First Name" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" placeholder="Last Name" required>
+            <input type="text" id="last-name" placeholder="Last Name" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <label for="address">Address:</label>
-            <textarea name="address" id="address" placeholder="Address" required></textarea>
+            <textarea name="address" id="address" placeholder="Address" style="width: 100%;" required></textarea>
         </div>
         <div class="form-group">
             <label for="pincode">Pincode:</label>
-            <input type="text" id="pincode" placeholder="Pincode" required>
+            <input type="text" id="pincode" placeholder="Pincode" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <label for="gender">Gender:</label>
-            <input type="radio" id="male" name="gender" value="Male" required>
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female">
+            <input type="radio" id="male" name="gender" value="Male" required>
             <label for="female">Female</label>
+            <input type="radio" id="female" name="gender" value="Female">
         </div>
         <div class="form-group">
             <label for="food">Choice of Food (Select at least 2):</label>
@@ -41,7 +41,7 @@
             <input type="checkbox" id="food2" name="food" value="Burger">
             <label for="food2">Burger</label>
             <input type="checkbox" id="food3" name="food" value="Pasta">
-            <label for="food3">Pasta</label>
+            <label for="food3">Pasta</label><br>
             <input type="checkbox" id="food4" name="food" value="Salad">
             <label for="food4">Salad</label>
             <input type="checkbox" id="food5" name="food" value="Sushi">
@@ -49,11 +49,11 @@
         </div>
         <div class="form-group">
             <label for="state">State:</label>
-            <input type="text" id="state" required>
+            <input type="text" id="state" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <label for="country">Country:</label>
-            <input type="text" id="country" required>
+            <input type="text" id="country" style="width: 100%;" required>
         </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit" id="submit">Submit</button>
