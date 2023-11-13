@@ -1,22 +1,21 @@
 class UberPriceCalculator {
-    constructor(basePrice, distancePrice, timePrice) {
-      this.basePrice = basePrice;
-      this.distancePrice = distancePrice;
-      this.timePrice = timePrice;
-    }
-  
-    calculatePrice(distance, time) {
-      return this.basePrice + this.distancePrice * distance + this.timePrice * time;
-    }
+  constructor(distance, duration, surgeMultiplier = 1) {
+      this.distance = distance;
+      this.duration = duration;
+      this.surgeMultiplier = surgeMultiplier;
   }
-  
-  // Example usage:
-  
-  const uberPriceCalculator = new UberPriceCalculator(2.5, 0.5, 0.25);
-  
-  // Calculate the price for a 10 km ride that takes 30 minutes:
-  
-  const price = uberPriceCalculator.calculatePrice(10, 30);
-  
-  console.log(price);
-  
+
+  calculatePrice(baseFare = 2, costPerMile = 1.5, costPerMinute = 0.2) {
+      const totalFare = baseFare +
+          (this.distance * costPerMile * this.surgeMultiplier) +
+          (this.duration * costPerMinute);
+
+      return totalFare.toFixed(2); // Round to two decimal places
+  }
+}
+
+// Example usage:
+const uberRide = new UberPriceCalculator(10, 20, 1.5); // 10 miles, 20 minutes, surge multiplier of 1.5
+const price = uberRide.calculatePrice();
+
+console.log(`Uber Price: $${price}`);
