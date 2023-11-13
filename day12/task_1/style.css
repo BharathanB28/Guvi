@@ -1,36 +1,45 @@
-body{
+body {
     background: #CAD2C5;
 }
-header{
+
+p{
+    margin-left: 40%;
+}
+
+header {
     display: flex;
     align-items: center;
     background-color: #2F3D46;
     color: white;
-    font-size: 40px;
+    font-size: 2rem; 
+    padding: 10px; 
 }
 
-i{
+i {
     color: white;
-    margin-left: 30px;
-    margin-right: 600px;
+    margin-left: 10px; 
+    margin-right: 20px; 
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    margin: 60px;
+    margin: 20px; 
     border-radius: 5px;
-    height: 500px;
+    height: 80vh;
 }
 
-.col{
+.col {
     display: flex;
     align-items: center;
     background: #353535;
     color: gray;
-    font-size:larger;
+    font-size: 1.5rem; 
+    margin: 10px; 
 }
 
-.main{
+.main {
     display: flex;
+    flex-direction: row; 
 }
+
