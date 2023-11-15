@@ -3,9 +3,17 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
-const port = 3000; 
+const port = 3001; 
 
 app.use(bodyParser.json());
+
+const path = require('path');
+const folderPath = path.join('D:', 'GUVI', 'roadMapTask', 'day37');
+
+
+const directoryPath = './day37'; // Adjust as needed
+
+
 
 // API endpoints will go here
 
@@ -36,7 +44,7 @@ app.post('/createFile', (req, res) => {
 
 // endppoint to view the current time stamp
 app.get('/getAllFiles', (req, res) => {
-  const folderPath = 'D:/GUVI/roadMapTask/day37'; 
+  const folderPath = '/'; 
 
   fs.readdir(folderPath, (err, files) => {
     if (err) {
@@ -50,5 +58,5 @@ app.get('/getAllFiles', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });
