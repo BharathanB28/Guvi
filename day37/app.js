@@ -1,56 +1,55 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path'); // Import the 'path' module
 
 const app = express();
-const port = 3001; 
+const port = 3000;
 
 app.use(bodyParser.json());
 
-const path = require('path');
-const folderPath = path.join('D:', 'GUVI', 'roadMapTask', 'day37');
+const directoryPath = './day37';
 
+// Ensure the directory exists, create it if it doesn't
+if (!fs.existsSync(directoryPath)) {
+  fs.mkdirSync(directoryPath);
+}
 
-const directoryPath = './day37'; // Adjust as needed
-
-
-
-// API endpoints will go here
-
+// Default route
 app.get('/', (req, res) => {
-    res.send('Hello, This is Bharathan, Welcome to your Node.js API!');
-  });
+  res.send('Hello, This is Bharathan, Welcome to your Node.js API!');
+});
 
-// endpoint to create a txt file with current time stamp
-
-app.post('/createFile', (req, res) => {
-  const folderPath = 'D:/GUVI/roadMapTask/day37'; 
+// Endpoint to create a txt file with current time stamp
+app.post('/createTimestampedFile', (req, res) => {
+  const folderPath = directoryPath;
 
   const currentDate = new Date();
   const fileName = `${currentDate.toISOString().replace(/:/g, '-')}.txt`;
-  const filePath = `${folderPath}/${fileName}`;
+  const filePath = path.join(folderPath, fileName); // Use 'path.join' for cross-platform compatibility
 
   const fileContent = currentDate.toString();
 
   fs.writeFile(filePath, fileContent, (err) => {
     if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
+      console.error('Error creating file:', err);
+      res.status(500).send(`Internal Server Error: ${err.message}`);
     } else {
       res.status(201).send('File created successfully');
     }
   });
 });
 
-// endppoint to view the current time stamp
-app.get('/getAllFiles', (req, res) => {
-  const folderPath = '/'; 
+// Endpoint to view the list of timestamped files
+app.get('/listTimestampedFiles', (req, res) => {
+  const folderPath = directoryPath;
 
   fs.readdir(folderPath, (err, files) => {
     if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
+      console.error('Error reading directory:', err);
+      res.status(500).send(`Internal Server Error: ${err.message}`);
     } else {
+      console.log('Files in directory:', files);
       const textFiles = files.filter((file) => file.endsWith('.txt'));
       res.status(200).json({ files: textFiles });
     }
@@ -58,5 +57,5 @@ app.get('/getAllFiles', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
