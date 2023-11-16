@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const path = require('path'); // Import the 'path' module
+const path = require('path'); 
 
 const app = express();
 const port = 3000;
@@ -17,7 +17,7 @@ if (!fs.existsSync(directoryPath)) {
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('Hello, This is Bharathan, Welcome to your Node.js API!');
+  res.send('Hello, This is Bharathan, Welcome to your Node.js file system API!');
 });
 
 // Endpoint to create a txt file with current time stamp
@@ -26,7 +26,7 @@ app.post('/createTimestampedFile', (req, res) => {
 
   const currentDate = new Date();
   const fileName = `${currentDate.toISOString().replace(/:/g, '-')}.txt`;
-  const filePath = path.join(folderPath, fileName); // Use 'path.join' for cross-platform compatibility
+  const filePath = path.join(folderPath, fileName); 
 
   const fileContent = currentDate.toString();
 
