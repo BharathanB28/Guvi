@@ -17,7 +17,7 @@ if (!fs.existsSync(directoryPath)) {
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('Hello, This is Bharathan, Welcome to your Node.js file system API!');
+  res.send('Hello, This is Ruvetha, Welcome to your Node.js file system API!');
 });
 
 // Endpoint to create a txt file with current time stamp
